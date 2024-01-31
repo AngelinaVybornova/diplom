@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "uJiRRz8u65tfMOwtDKuYDcVg2yHF4wvejj30DAwJYIEbl6dxGoUHcxX3fOZQvF3wr8Xwp9PWZJrAZjl/PpgDhA==",
+  "success": true,
+  "projectFilePath": "D:\\dipl\\dipl\\dipl\\evoSim.web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ПК\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\ПК\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\ПК\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\ПК\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\ПК\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\ПК\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
