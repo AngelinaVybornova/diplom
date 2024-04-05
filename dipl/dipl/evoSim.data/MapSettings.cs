@@ -2,8 +2,8 @@
 {
     public class MapSettings
     {
-        int[] size = new int[2];
-        int animalsCap;
-        float foodAppearenceChance;
+        public int[] size = new int[2];
+        public int animalsCap;
+        public float foodAppearenceProb;
     }
 }

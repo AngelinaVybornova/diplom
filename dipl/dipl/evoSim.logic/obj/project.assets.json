@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "evoSim.data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/evoSim.data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/evoSim.data.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "evoSim.data/1.0.0": {
+      "type": "project",
+      "path": "../evoSim.data/evoSim.data.csproj",
+      "msbuildProject": "../evoSim.data/evoSim.data.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "evoSim.data >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\ПК\\.nuget\\packages": {},
@@ -15,11 +34,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj",
+      "projectUniqueName": "D:\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj",
       "projectName": "evoSim.logic",
-      "projectPath": "D:\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj",
+      "projectPath": "D:\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj",
       "packagesPath": "C:\\Users\\ПК\\.nuget\\packages",
-      "outputPath": "D:\\dipl\\dipl\\evoSim.logic\\obj\\",
+      "outputPath": "D:\\diplom\\dipl\\dipl\\evoSim.logic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -34,13 +53,17 @@
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "D:\\tru\\test-nuggets": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj": {
+              "projectPath": "D:\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

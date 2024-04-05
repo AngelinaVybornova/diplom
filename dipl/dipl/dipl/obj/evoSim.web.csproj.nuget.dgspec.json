@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dipl\\dipl\\dipl\\evoSim.web.csproj": {}
+    "D:\\diplom\\dipl\\dipl\\dipl\\evoSim.web.csproj": {}
   },
   "projects": {
-    "D:\\dipl\\dipl\\dipl\\evoSim.web.csproj": {
+    "D:\\diplom\\dipl\\dipl\\dipl\\evoSim.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dipl\\dipl\\dipl\\evoSim.web.csproj",
+        "projectUniqueName": "D:\\diplom\\dipl\\dipl\\dipl\\evoSim.web.csproj",
         "projectName": "evoSim.web",
-        "projectPath": "D:\\dipl\\dipl\\dipl\\evoSim.web.csproj",
+        "projectPath": "D:\\diplom\\dipl\\dipl\\dipl\\evoSim.web.csproj",
         "packagesPath": "C:\\Users\\ПК\\.nuget\\packages",
-        "outputPath": "D:\\dipl\\dipl\\dipl\\obj\\",
+        "outputPath": "D:\\diplom\\dipl\\dipl\\dipl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -26,8 +26,8 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "D:\\tru\\test-nuggets": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

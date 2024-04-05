@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace evoSim.data
 {
-    internal class Food: Entity
+    public class Food: Entity
     {
-        bool type;
+        public bool type;
     }
 }

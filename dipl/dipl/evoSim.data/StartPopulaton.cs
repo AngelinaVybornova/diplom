@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace evoSim.data
 {
-    internal class StartPopulaton
+    public class StartPopulaton
     {
-        List<Animal> animalList;
-        int numOfSpecies;
-        Dictionary<int, int> numOfAnimalsInSpecies;
+        public List<Animal> animalList;
+        public int numOfSpecies;
+        public Dictionary<Animal, int> numOfAnimalsInSpecies;
     }
 }

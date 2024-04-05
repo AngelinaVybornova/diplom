@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dipl\\dipl\\evoSim.dto\\evoSim.dto.csproj",
+      "projectUniqueName": "D:\\diplom\\dipl\\dipl\\evoSim.dto\\evoSim.dto.csproj",
       "projectName": "evoSim.dto",
-      "projectPath": "D:\\dipl\\dipl\\evoSim.dto\\evoSim.dto.csproj",
+      "projectPath": "D:\\diplom\\dipl\\dipl\\evoSim.dto\\evoSim.dto.csproj",
       "packagesPath": "C:\\Users\\ПК\\.nuget\\packages",
-      "outputPath": "D:\\dipl\\dipl\\evoSim.dto\\obj\\",
+      "outputPath": "D:\\diplom\\dipl\\dipl\\evoSim.dto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -34,7 +34,7 @@
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "D:\\tru\\test-nuggets": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

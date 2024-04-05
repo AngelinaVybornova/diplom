@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace evoSim.data
 {
-    internal class CurrentState
+    public class CurrentState
     {
-        MapSettings map;
-        List<Animal> animals;
-        List<Food> food;
+        public MapSettings map;
+        public List<Animal> animals;
+        public  List<Food> food;
     }
 }

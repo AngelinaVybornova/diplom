@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace evoSim.data
 {
-    internal class Entity
+    public class Entity
     {
-        int id;
-        int[] coordinates = new int[2];
+        public int id;
+        public int[] coordinates = new int[2];
     }
 }
