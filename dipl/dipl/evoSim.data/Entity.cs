@@ -10,5 +10,12 @@ namespace evoSim.data
     {
         public int id;
         public int[] coordinates = new int[2];
+        public EnType enType;
+    }
+
+    public enum EnType
+    {
+        Food,
+        Animal
     }
 }

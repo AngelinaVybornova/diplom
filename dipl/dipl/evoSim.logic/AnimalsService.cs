@@ -156,7 +156,7 @@ namespace evoSim.logic
 
         public string CrossoverReprod(Animal parent1, Animal parent2)
         {
-            string genome = parent1.genome.Substring(0, 23) + parent2.genome.Substring(24, 47);
+            string genome = parent1.genome.Substring(0, 24) + parent2.genome.Substring(24, 24);
             genome = Mutate(genome);
             return genome;
         }
@@ -179,12 +179,18 @@ namespace evoSim.logic
 
         public List<Animal> DeleteDeadAnimals(List<Animal> animals)
         {
+            var deleted = new List<Animal>();
             foreach (var animal in animals)
             {
                 if (animal.health <= 0 || animal.hunger <= 0)
                 {
-                    animals.Remove(animal);
+                    deleted.Add(animal);
                 }
+            }
+
+            foreach (var animal in deleted)
+            {
+                animals.Remove(animal);
             }
 
             return animals;
@@ -194,9 +200,9 @@ namespace evoSim.logic
         {
             return new Color
             {
-                R = (int.Parse(color.Substring(0, 3))) / 999 * 255,
-                G = (int.Parse(color.Substring(3, 3))) / 999 * 255,
-                B = (int.Parse(color.Substring(7, 3))) / 999 * 255
+                R = (int)(int.Parse(color.Substring(0, 3)) / 9.99 * 2.55),
+                G = (int)(int.Parse(color.Substring(3, 3)) / 9.99 * 2.55),
+                B = (int)(int.Parse(color.Substring(6, 3)) / 9.99 * 2.55)
             };
         }
 
@@ -210,7 +216,7 @@ namespace evoSim.logic
         private string Mutate(string genome)
         {
             var rnd = new Random();
-            if (rnd.Next(0, _mutationProb++) > _mutationProb) { return genome; }
+            if (rnd.Next(0, 101) > _mutationProb) { return genome; }
             var numOfMutations = rnd.Next(0, 48);
             var charGenome = genome.ToCharArray();
 
@@ -220,10 +226,10 @@ namespace evoSim.logic
                 charGenome[mutatedLetterId] = char.Parse(rnd.Next(10).ToString());
             }
 
-            return charGenome.ToString();
+            return new string(charGenome);
         }
 
-        private int GetFreeFoodId(List<Food> entities)
+        public int GetFreeFoodId(List<Food> entities)
         {
             int id = 0;
             while (entities.Find(e => e.id == id) != null) { id++; }
@@ -235,7 +241,7 @@ namespace evoSim.logic
             string num = string.Empty;
             var n1 = int.Parse(genome[index].ToString());
             if (n1 <= 4) { num += 0; } else { num += 1; }
-            var n2 = int.Parse(genome[index++].ToString());
+            var n2 = int.Parse(genome[++index].ToString());
             if (n2 <= 4) { num += 0; } else { num += 1; }
             return int.Parse(num);
         }

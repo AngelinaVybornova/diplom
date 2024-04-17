@@ -1,0 +1,15 @@
+D:\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.logic.deps.json
+D:\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.logic.dll
+D:\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.logic.pdb
+D:\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.data.dll
+D:\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.data.pdb
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.csproj.AssemblyReference.cache
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.GeneratedMSBuildEditorConfig.editorconfig
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.AssemblyInfoInputs.cache
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.AssemblyInfo.cs
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.csproj.CoreCompileInputs.cache
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.csproj.CopyComplete
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.dll
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\refint\evoSim.logic.dll
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.pdb
+D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\ref\evoSim.logic.dll

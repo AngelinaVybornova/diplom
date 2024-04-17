@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "evoSim.logic/1.0.0": {
+        "dependencies": {
+          "evoSim.data": "1.0.0"
+        },
+        "runtime": {
+          "evoSim.logic.dll": {}
+        }
+      },
+      "evoSim.data/1.0.0": {
+        "runtime": {
+          "evoSim.data.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "evoSim.logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "evoSim.data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,12 @@
+D:\diplom\dipl\dipl\evoSim.data\bin\Debug\net6.0\evoSim.data.deps.json
+D:\diplom\dipl\dipl\evoSim.data\bin\Debug\net6.0\evoSim.data.dll
+D:\diplom\dipl\dipl\evoSim.data\bin\Debug\net6.0\evoSim.data.pdb
+D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.csproj.AssemblyReference.cache
+D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.GeneratedMSBuildEditorConfig.editorconfig
+D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.AssemblyInfoInputs.cache
+D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.AssemblyInfo.cs
+D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.csproj.CoreCompileInputs.cache
+D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.dll
+D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\refint\evoSim.data.dll
+D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.pdb
+D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\ref\evoSim.data.dll

@@ -49,4 +49,11 @@ namespace evoSim.data
         public int G;
         public int B;
     }
+
+    public class AnimalInfo
+    {
+        public int panicTimer;
+        public int reprTimer;
+        public bool isAttacked;
+    }
 }

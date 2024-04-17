@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "GhfTv2kkoQ/jlypOlObFB5HJ1FWKjAZQFeyhA3yifzk=",
-  "Source": "dipl",
-  "BasePath": "_content/dipl",
+  "Hash": "b1rnz0xRYTOyqu+zxMqJmP7l5f2Ke3rZpgDpLOtbhdY=",
+  "Source": "evoSim.web",
+  "BasePath": "_content/evoSim.web",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
