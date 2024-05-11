@@ -6,6 +6,7 @@ namespace evoSim.logic
     {
         private int _startNumPercent = 30;
         private int _mutationProb = 40;
+        private int _numOfFoodForDead = 2;
 
         public CurrentState GenerateRandomly(MapSettings map)
         {
@@ -177,10 +178,10 @@ namespace evoSim.logic
             return animals;
         }
 
-        public List<Animal> DeleteDeadAnimals(List<Animal> animals)
+        public CurrentState DeleteDeadAnimals(CurrentState state)
         {
             var deleted = new List<Animal>();
-            foreach (var animal in animals)
+            foreach (var animal in state.animals)
             {
                 if (animal.health <= 0 || animal.hunger <= 0)
                 {
@@ -190,10 +191,20 @@ namespace evoSim.logic
 
             foreach (var animal in deleted)
             {
-                animals.Remove(animal);
+                state.animals.Remove(animal);
+                for (var i = 0; i < _numOfFoodForDead; i++) {
+                    var piece = new Food
+                    {
+                        id = GetFreeFoodId(state.food),
+                        coordinates = new int[] { animal.coordinates[0] + i, animal.coordinates[1] },
+                        type = true
+                    };
+
+                    state.food.Add(piece);
+                }
             }
 
-            return animals;
+            return state;
         }
 
         private Color DecipherColor(string color)

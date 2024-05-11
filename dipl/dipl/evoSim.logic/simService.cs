@@ -1,9 +1,8 @@
 ﻿using evoSim.data;
-using System.Reflection.Emit;
 
 namespace evoSim.logic
 {
-    internal class simService
+    internal class SimService
     {
         Dictionary<Animal, AnimalInfo> _infos;
         int _healAmount = 10;
@@ -23,7 +22,7 @@ namespace evoSim.logic
         {
             state = MainBehaviourLoop(state);
             state = GenerateFood(state);
-            state.animals = _service.DeleteDeadAnimals(state.animals);
+            state = _service.DeleteDeadAnimals(state);
             return state;
         }
         
@@ -35,15 +34,15 @@ namespace evoSim.logic
             }
             foreach (var animal in state.animals)
             {
+                animal.hunger -= _hungerLoopCost;
+                if (_infos[animal].reprTimer > 0)
+                {
+                    _infos[animal].reprTimer--;
+                }
+
                 if (animal.health < animal.decipheredGenome.maxHealth)
                 {
                     animal.health += _healAmount;
-                    animal.hunger -= _hungerLoopCost;
-                    if (_infos[animal].reprTimer > 0)
-                    {
-                        _infos[animal].reprTimer--;
-                    }
-
                     if (animal.health > animal.decipheredGenome.maxHealth)
                     {
                         animal.health = animal.decipheredGenome.maxHealth;
@@ -66,10 +65,11 @@ namespace evoSim.logic
                         RunFromAttacker(animal, state.map);
                         _infos[animal].panicTimer--;
                         continue;
+                    } else
+                    {
+                        animal.target = null;
                     }
                 }
-
-                animal.state = State.Wandering;
 
                 if (animal.hunger <= _hungerTrshld)
                 {
@@ -80,36 +80,54 @@ namespace evoSim.logic
 
                         animal.target = food;
                     }
-                    if (IsInsideRadius(animal.coordinates[0], animal.coordinates[1], _collisionRadius, animal.target.coordinates[0], animal.target.coordinates[1]))
+                    if (animal.target != null)
                     {
-                        if (animal.target.enType == EnType.Food)
+                        if (IsInsideRadius(animal.coordinates[0], animal.coordinates[1], _collisionRadius, animal.target.coordinates[0], animal.target.coordinates[1]))
                         {
-                            var food = state.food.Find(tfood => tfood.id == animal.target.id);
-                            if (food.type) //мясо
+                            if (animal.target.enType == EnType.Food)
                             {
-                                animal.hunger += _meatCost;
-                            } else {
-                                animal.health += _herbCost;
+                                var food = state.food.Find(tfood => tfood.id == animal.target.id);
+                                if (food.type) //мясо
+                                {
+                                    animal.hunger += _meatCost;
+                                    animal.target = null;
+                                }
+                                else
+                                {
+                                    animal.health += _herbCost;
+                                    animal.target = null;
+                                }
+                                state.food.Remove(food);
                             }
-                            state.food.Remove(food);
-                        } else
-                        {
-                            var prey = state.animals.Find(tanimal => tanimal.id == animal.target.id);
-                            prey.health -= animal.decipheredGenome.biteForce;
-                            _infos[prey].isAttacked = true;
-                            prey.target.coordinates = animal.coordinates;
-                            prey.target.id = animal.id;
-                            prey.target.enType = EnType.Animal;
+                            else if (!animal.decipheredGenome.diet)
+                            {
+                                var prey = state.animals.Find(tanimal => tanimal.id == animal.target.id);
+                                prey.health -= animal.decipheredGenome.biteForce;
+                                if (prey.health > 0)
+                                {
+                                    _infos[prey].isAttacked = true;
+                                    prey.target.coordinates = animal.coordinates;
+                                    prey.target.id = animal.id;
+                                    prey.target.enType = EnType.Animal;
+
+                                    animal.target.coordinates = prey.coordinates;
+                                    animal.target.id = prey.id;
+                                    animal.target.enType = EnType.Animal;
+                                } else
+                                {
+                                    animal.target = null;
+                                }
+                            }
                         }
+                        else
+                        {
+                            MoveToTarget(animal, state.map, animal.target.coordinates[0], animal.target.coordinates[1]);
+                        }
+                        continue;
                     }
-                    else
-                    {
-                        MoveToTarget(animal, state.map, animal.target.coordinates[0], animal.target.coordinates[1]);
-                    }
-                    continue;
                 }
 
-                if (((animal.health * 100)/animal.decipheredGenome.maxHealth > _healthPrcntTrshld) && _infos[animal].reprTimer == 0)
+                if (animal.state != State.Hungry && ((animal.health * 100)/animal.decipheredGenome.maxHealth > _healthPrcntTrshld) && _infos[animal].reprTimer == 0)
                 {
                     animal.state = State.Mate;
                     if (!animal.decipheredGenome.reprodType)
@@ -124,12 +142,18 @@ namespace evoSim.logic
                     {
                         var mate = FindClosestMate(animal, state);
 
-                        animal.target.coordinates = mate.coordinates;
-                        animal.target.id = mate.id;
-                        animal.target.enType = EnType.Animal;
+                        if (mate != null)
+                        {
+                            animal.target.coordinates = mate.coordinates;
+                            animal.target.id = mate.id;
+                            animal.target.enType = EnType.Animal;
+                        } else
+                        {
+                            animal.target = null;
+                        }
                     }
 
-                    if (IsInsideRadius(animal.coordinates[0], animal.coordinates[1], _collisionRadius, animal.target.coordinates[0], animal.target.coordinates[1]))
+                    if (animal.target != null && IsInsideRadius(animal.coordinates[0], animal.coordinates[1], _collisionRadius, animal.target.coordinates[0], animal.target.coordinates[1]))
                     {
                         var mate = state.animals.Find(tanimal => tanimal.id == animal.target.id); 
                         _infos[animal].reprTimer = _reprDelay;
@@ -143,6 +167,7 @@ namespace evoSim.logic
                     continue;
                 }
 
+                animal.state = State.Wandering;
                 SetRandomPosition(animal, state);
             }
 
@@ -273,7 +298,7 @@ namespace evoSim.logic
                 }
             }
 
-            Entity closest = new Entity();
+            Entity closest = null;
             double closestDistance = int.MaxValue;
 
             foreach (var avalable in avalables)
@@ -294,7 +319,7 @@ namespace evoSim.logic
 
             foreach (var targetAnimal in state.animals)
             {
-                if (IsInsideRadius(animal.coordinates[0], animal.coordinates[1], _viewRadius, targetAnimal.coordinates[0], targetAnimal.coordinates[1]) && targetAnimal.id != animal.id && !targetAnimal.decipheredGenome.reprodType)
+                if (IsInsideRadius(animal.coordinates[0], animal.coordinates[1], _viewRadius, targetAnimal.coordinates[0], targetAnimal.coordinates[1]) && targetAnimal.id != animal.id && !targetAnimal.decipheredGenome.reprodType && ((targetAnimal.health * 100) / targetAnimal.decipheredGenome.maxHealth > _healthPrcntTrshld) && _infos[targetAnimal].reprTimer == 0)
                 {
                     avalables.Add(targetAnimal);
                 }
@@ -386,7 +411,7 @@ namespace evoSim.logic
             {
                 yt = map.size[1];
             }
-            if (IsInsideRadius(animal.coordinates[0], animal.coordinates[1], animal.decipheredGenome.speed * _speedMultiplier, xt, yt))
+            if (IsInsideRadius(animal.coordinates[0], animal.coordinates[1], (animal.decipheredGenome.speed + 1) * _speedMultiplier, xt, yt))
             {
                 animal.coordinates[0] = xt;
                 animal.coordinates[1] = yt;
@@ -396,8 +421,8 @@ namespace evoSim.logic
                 double dy = yt - animal.coordinates[1];
                 double distance = Math.Sqrt(dx * dx + dy * dy);
 
-                double closestX = animal.coordinates[0] + dx * (animal.decipheredGenome.speed * _speedMultiplier) / distance;
-                double closestY = animal.coordinates[1] + dy * (animal.decipheredGenome.speed * _speedMultiplier) / distance;
+                double closestX = animal.coordinates[0] + dx * ((animal.decipheredGenome.speed + 1) * _speedMultiplier) / distance;
+                double closestY = animal.coordinates[1] + dy * ((animal.decipheredGenome.speed + 1) * _speedMultiplier) / distance;
 
                 animal.coordinates[0] = (int)closestX;
                 animal.coordinates[1] = (int)closestY;
