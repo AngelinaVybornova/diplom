@@ -27,6 +27,7 @@ namespace evoSim.logic
                 animal.state = State.Wandering;
                 animal.id = i;
                 animal.coordinates = GenerateRandomCoords(map.size);
+                animal.enType = EnType.Animal;
                 animals.Add(animal);
             }
 
@@ -38,7 +39,8 @@ namespace evoSim.logic
                 {
                     id = i,
                     coordinates = GenerateRandomCoords(map.size),
-                    type = true
+                    type = false,
+                    enType = EnType.Food
                 };
                 foods.Add(food);
             }
@@ -56,6 +58,7 @@ namespace evoSim.logic
             var animals = new List<Animal>();
             var foods = new List<Food>();
             int totalAnimals = 0;
+            int id = 0;
 
             foreach (Animal animal in populaton.animalList)
             {
@@ -69,10 +72,12 @@ namespace evoSim.logic
                     newAnimal.target = null;
                     newAnimal.turnAngle = 0;
                     newAnimal.state = State.Wandering;
-                    newAnimal.id = i;
+                    newAnimal.id = id;
                     newAnimal.coordinates = GenerateRandomCoords(map.size);
+                    animal.enType = EnType.Animal;
                     animals.Add(newAnimal);
                     totalAnimals++;
+                    id++;
                 }
             }
 
@@ -84,7 +89,8 @@ namespace evoSim.logic
                 {
                     id = i,
                     coordinates = GenerateRandomCoords(map.size),
-                    type = true
+                    type = false,
+                    enType = EnType.Food
             };
                 foods.Add(food);
             }
@@ -174,8 +180,14 @@ namespace evoSim.logic
             animal.state = State.Wandering;
             animal.id = GetFreeAnimalId(animals);
             animal.coordinates = parentCoordinates;
-            animals.Add(animal);
-            return animals;
+            animal.enType = EnType.Animal;
+            var newAnimals = new List<Animal>();
+            foreach (var tempAnimal in animals)
+            {
+                newAnimals.Add(tempAnimal);
+            }
+            newAnimals.Add(animal);
+            return newAnimals;
         }
 
         public CurrentState DeleteDeadAnimals(CurrentState state)
@@ -197,7 +209,8 @@ namespace evoSim.logic
                     {
                         id = GetFreeFoodId(state.food),
                         coordinates = new int[] { animal.coordinates[0] + i, animal.coordinates[1] },
-                        type = true
+                        type = true,
+                        enType = EnType.Food
                     };
 
                     state.food.Add(piece);

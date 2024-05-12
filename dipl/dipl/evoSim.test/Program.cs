@@ -3,6 +3,7 @@ using evoSim.data;
 using evoSim.logic;
 
 var service = new AnimalsService();
+var service2 = new SimService();
 MapSettings map = new MapSettings
 {
     size = new int[] { 1000, 1000 },
@@ -10,16 +11,37 @@ MapSettings map = new MapSettings
     foodAppearenceProb = 0.5F
 };
 
-/*var population = service.GenerateRandomly(map);
-var singl = service.SingleReprod(population.animals[0]);
-var couple = service.CrossoverReprod(population.animals[0], population.animals[1]);
-var population2 = service.AddNewAnimal(population.animals, singl, population.animals[0].coordinates);
-population.animals[0].hunger = 0;
-population.animals[2].health = -2;
-population.animals[3].health = 0;
-var population3 = service.DeleteDeadAnimals(population.animals);
-population2 = service.AddNewAnimal(population.animals, couple, population.animals[0].coordinates);
-Console.WriteLine("aaaa");*/
+var popul = service.GenerateRandomly(map);
+
+var animals = new List<Animal>();
+animals.Add(popul.animals[0]);
+animals.Add(popul.animals[1]);
+animals.Add(popul.animals[2]);
+
+Dictionary<Animal, int> nums = new Dictionary<Animal, int>();
+
+foreach (var animal in animals)
+{
+    nums.Add(animal, 10);
+}
+
+StartPopulaton startPopulaton = new StartPopulaton
+{
+    animalList = animals,
+    numOfSpecies = 3,
+    numOfAnimalsInSpecies = nums
+};
+
+var population = service.GenerateFromSettings(map, startPopulaton);
+for (int i = 0; i < 2000;  i++)
+{
+    service2.MainSimLoop(population);
+    if (population.animals.Count == 0)
+    {
+        Console.WriteLine("aaaa");
+    }
+}
+Console.WriteLine("aaaa");
 
 /*double centerX = 1; // координата x центра окружности
 double centerY = 2; // координата y центра окружности
@@ -35,7 +57,7 @@ double closestX = centerX + dx * radius / distance;
 double closestY = centerY + dy * radius / distance;
 
 Console.WriteLine("Координаты ближайшей точки на окружности: ({0}, {1})", closestX, closestY);*/
-
+/*
 // Координаты точки A
 double pointAX = 301;
 double pointAY = 302;
@@ -76,4 +98,4 @@ else
     pointCY = pointAY + deltaY * Math.Sign(directionY);
 }
 
-Console.WriteLine("Координаты точки C: ({0}, {1})", pointCX, pointCY);
+Console.WriteLine("Координаты точки C: ({0}, {1})", pointCX, pointCY);*/

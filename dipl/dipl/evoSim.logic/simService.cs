@@ -2,9 +2,9 @@
 
 namespace evoSim.logic
 {
-    internal class SimService
+    public class SimService
     {
-        Dictionary<Animal, AnimalInfo> _infos;
+        Dictionary<Animal, AnimalInfo> _infos = new Dictionary<Animal, AnimalInfo>();
         int _healAmount = 10;
         int _hungerTrshld = 30;
         int _healthPrcntTrshld = 40;
@@ -28,10 +28,13 @@ namespace evoSim.logic
         
         public CurrentState MainBehaviourLoop(CurrentState state)
         {
-            if (_infos == null)
+            var newAnimals = new List<Animal>();
+            foreach (var animal in state.animals)
             {
-                FillInfos(state.animals);
+                newAnimals.Add(animal);
             }
+            FillInfos(state.animals);
+
             foreach (var animal in state.animals)
             {
                 animal.hunger -= _hungerLoopCost;
@@ -59,10 +62,14 @@ namespace evoSim.logic
                     if (_infos[animal].panicTimer > 0)
                     {
                         var attacker = state.animals.Find(tanimal => tanimal.id == animal.target.id);
-                        animal.target.coordinates = attacker.coordinates;
-                        animal.target.id = attacker.id;
-                        animal.target.enType = EnType.Animal;
-                        RunFromAttacker(animal, state.map);
+                        if (attacker != null)
+                        {
+                            animal.target = new Entity();
+                            animal.target.coordinates = attacker.coordinates;
+                            animal.target.id = attacker.id;
+                            animal.target.enType = EnType.Animal;
+                            RunFromAttacker(animal, state.map);
+                        }
                         _infos[animal].panicTimer--;
                         continue;
                     } else
@@ -87,35 +94,50 @@ namespace evoSim.logic
                             if (animal.target.enType == EnType.Food)
                             {
                                 var food = state.food.Find(tfood => tfood.id == animal.target.id);
-                                if (food.type) //мясо
+                                if (food != null)
                                 {
-                                    animal.hunger += _meatCost;
-                                    animal.target = null;
-                                }
-                                else
+                                    if (food.type) //мясо
+                                    {
+                                        animal.hunger += _meatCost;
+                                        animal.target = null;
+                                    }
+                                    else
+                                    {
+                                        animal.health += _herbCost;
+                                        animal.target = null;
+                                    }
+                                    state.food.Remove(food);
+                                } else
                                 {
-                                    animal.health += _herbCost;
-                                    animal.target = null;
+                                    continue;
                                 }
-                                state.food.Remove(food);
                             }
                             else if (!animal.decipheredGenome.diet)
                             {
                                 var prey = state.animals.Find(tanimal => tanimal.id == animal.target.id);
-                                prey.health -= animal.decipheredGenome.biteForce;
-                                if (prey.health > 0)
+                                if (prey != null)
                                 {
-                                    _infos[prey].isAttacked = true;
-                                    prey.target.coordinates = animal.coordinates;
-                                    prey.target.id = animal.id;
-                                    prey.target.enType = EnType.Animal;
+                                    prey.health -= animal.decipheredGenome.biteForce;
+                                    if (prey.health > 0)
+                                    {
+                                        _infos[prey].isAttacked = true;
+                                        prey.target = new Entity();
+                                        prey.target.coordinates = animal.coordinates;
+                                        prey.target.id = animal.id;
+                                        prey.target.enType = EnType.Animal;
 
-                                    animal.target.coordinates = prey.coordinates;
-                                    animal.target.id = prey.id;
-                                    animal.target.enType = EnType.Animal;
+                                        animal.target = new Entity();
+                                        animal.target.coordinates = prey.coordinates;
+                                        animal.target.id = prey.id;
+                                        animal.target.enType = EnType.Animal;
+                                    }
+                                    else
+                                    {
+                                        animal.target = null;
+                                    }
                                 } else
                                 {
-                                    animal.target = null;
+                                    continue;
                                 }
                             }
                         }
@@ -134,7 +156,7 @@ namespace evoSim.logic
                     {
                         _infos[animal].reprTimer = _reprDelay;
                         var newGen = _service.SingleReprod(animal);
-                        _service.AddNewAnimal(state.animals, newGen, animal.coordinates);
+                        newAnimals = _service.AddNewAnimal(state.animals, newGen, animal.coordinates);
                         continue;
                     }
 
@@ -144,6 +166,7 @@ namespace evoSim.logic
 
                         if (mate != null)
                         {
+                            animal.target = new Entity();
                             animal.target.coordinates = mate.coordinates;
                             animal.target.id = mate.id;
                             animal.target.enType = EnType.Animal;
@@ -155,11 +178,17 @@ namespace evoSim.logic
 
                     if (animal.target != null && IsInsideRadius(animal.coordinates[0], animal.coordinates[1], _collisionRadius, animal.target.coordinates[0], animal.target.coordinates[1]))
                     {
-                        var mate = state.animals.Find(tanimal => tanimal.id == animal.target.id); 
-                        _infos[animal].reprTimer = _reprDelay;
-                        _infos[mate].reprTimer = _reprDelay;
-                        var newGen = _service.CrossoverReprod(animal, mate);
-                        _service.AddNewAnimal(state.animals, newGen, animal.coordinates);
+                        var mate = state.animals.Find(tanimal => tanimal.id == animal.target.id);
+                        if (mate != null)
+                        {
+                            _infos[animal].reprTimer = _reprDelay;
+                            _infos[mate].reprTimer = _reprDelay;
+                            var newGen = _service.CrossoverReprod(animal, mate);
+                            newAnimals = _service.AddNewAnimal(state.animals, newGen, animal.coordinates);
+                        } else
+                        {
+                            continue;
+                        }
                     } else
                     {
                         MoveToTarget(animal, state.map, animal.target.coordinates[0], animal.target.coordinates[1]);
@@ -168,8 +197,10 @@ namespace evoSim.logic
                 }
 
                 animal.state = State.Wandering;
-                SetRandomPosition(animal, state);
+                SetRandomPosition(animal, state.map);
             }
+
+            state.animals = newAnimals;
 
             return state;
         }
@@ -187,7 +218,8 @@ namespace evoSim.logic
                     {
                         id = _service.GetFreeFoodId(state.food),
                         coordinates = _service.GenerateRandomCoords(state.map.size),
-                        type = false
+                        type = false,
+                        enType = EnType.Food
                     };
 
                     state.food.Add(piece);
@@ -201,15 +233,19 @@ namespace evoSim.logic
         {
             foreach (var animal in animals)
             {
-                _infos.Add(animal, new AnimalInfo {
-                    panicTimer = 0,
-                    reprTimer = 0,
-                    isAttacked = false
-                });
+                if (!_infos.ContainsKey(animal))
+                {
+                    _infos.Add(animal, new AnimalInfo
+                    {
+                        panicTimer = 0,
+                        reprTimer = 0,
+                        isAttacked = false
+                    });
+                }
             }
         }
 
-        private void SetRandomPosition(Animal animal, CurrentState state)
+        private void SetRandomPosition(Animal animal, MapSettings map)
         {
             var rnd = new Random();
             int minX = animal.coordinates[0] - _viewRadius; 
@@ -221,18 +257,18 @@ namespace evoSim.logic
             {
                 minX = 0;
             }
-            if (animal.coordinates[0] + _viewRadius > state.map.size[0])
+            if (animal.coordinates[0] + _viewRadius > map.size[0])
             {
-                maxX = state.map.size[0];
+                maxX = map.size[0];
             }
 
             if (animal.coordinates[1] - _viewRadius < 0)
             {
                 minY = 0;
             }
-            if (animal.coordinates[1] + _viewRadius > state.map.size[1])
+            if (animal.coordinates[1] + _viewRadius > map.size[1])
             {
-                maxY = state.map.size[1];
+                maxY = map.size[1];
             }
 
             do
@@ -356,8 +392,10 @@ namespace evoSim.logic
         {
             int pointCX = 0, pointCY = 0;
             if (animal.coordinates[0] == animal.target.coordinates[0] && animal.coordinates[1] == animal.target.coordinates[1]) {
-                animal.target.coordinates[0] += 1;
-                animal.target.coordinates[1] += 1;
+                //animal.target.coordinates[0] += 1;
+                //animal.target.coordinates[1] += 1;
+                SetRandomPosition(animal, map);
+                return;
             }
             else if (animal.coordinates[0] == animal.target.coordinates[0])
             {
@@ -365,6 +403,7 @@ namespace evoSim.logic
                 pointCY = animal.coordinates[1] + _viewRadius * (-Math.Sign(animal.coordinates[1] - animal.target.coordinates[1]));
                 pointCX = animal.coordinates[0];
                 MoveToTarget(animal, map, pointCX, pointCY);
+                return;
             }
             else if (animal.coordinates[1] == animal.target.coordinates[1])
             {
@@ -372,6 +411,7 @@ namespace evoSim.logic
                 pointCX = animal.coordinates[0] + _viewRadius * (-Math.Sign(animal.target.coordinates[0] - animal.coordinates[0]));
                 pointCY = animal.coordinates[1];
                 MoveToTarget(animal, map, pointCX, pointCY);
+                return;
             }
 
             double k = (animal.target.coordinates[1] - animal.coordinates[1]) / (animal.target.coordinates[0] - animal.coordinates[0]);
