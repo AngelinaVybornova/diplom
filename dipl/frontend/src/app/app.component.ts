@@ -19,6 +19,7 @@ import { Subject, takeUntil } from "rxjs";
   template: `
     <login-comp *ngIf="formState === 'unclicked'">Кнопку нажали</login-comp>
     <basicSetup-comp *ngIf="formState === 'vhod'"></basicSetup-comp>
+    <basicSetup-comp *ngIf="formState === 'registration'"></basicSetup-comp>
   `,
 })
 export class AppComponent {
@@ -28,20 +29,11 @@ export class AppComponent {
   unsubscribe = new Subject<void>();
 
   public ngOnInit(): void {
-    console.log("лялляля");
     this.formChange.pipe(takeUntil(this.unsubscribe)).subscribe((state) => {
       this.formState = state;
-      console.log("текст", state);
     });
   }
 
-  public buttonClk(): void {
-    if (this.formState === "unclicked") {
-      this.formState = "clicked";
-    } else {
-      this.formState = "unclicked";
-    }
-  }
   public ngOnDestroy(): void {
     console.log("ююююююхухх");
     this.unsubscribe.next();
