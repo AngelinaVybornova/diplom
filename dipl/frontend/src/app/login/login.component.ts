@@ -14,28 +14,17 @@ export class LoginComponent {
   public password = "";
   public login = "";
   public buttonState = "unclicked";
+  appComponentClass: AppComponent;
 
-  appComponentClass = new AppComponent();
+  constructor(_appComponentClass: AppComponent) {
+    this.appComponentClass = _appComponentClass;
+  }
 
   public buttonClkVhod(): void {
     this.appComponentClass.formChange.next("vhod");
-    if (this.buttonState === "unclicked") {
-      this.buttonState = "clicked";
-      console.log("click", this.buttonState); //так выводим логи для дебага, смотри их в консоли браузера
-    } else {
-      this.buttonState = "unclicked";
-      console.log("unclick", this.buttonState);
-    }
   }
   public buttonClkRegistration(): void {
     this.appComponentClass.formChange.next("registration");
-    if (this.buttonState === "unclicked") {
-      this.buttonState = "clicked";
-      console.log("click", this.buttonState); //так выводим логи для дебага, смотри их в консоли браузера
-    } else {
-      this.buttonState = "unclicked";
-      console.log("unclick", this.buttonState);
-    }
     // тут пишем логику на typescript
   }
 }

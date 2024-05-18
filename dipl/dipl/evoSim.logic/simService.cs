@@ -103,7 +103,7 @@ namespace evoSim.logic
                                     }
                                     else
                                     {
-                                        animal.health += _herbCost;
+                                        animal.hunger += _herbCost;
                                         animal.target = null;
                                     }
                                     state.food.Remove(food);

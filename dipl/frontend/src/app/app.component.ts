@@ -19,14 +19,6 @@ import { Subject, takeUntil } from "rxjs";
   template: `
     <login-comp *ngIf="formState === 'unclicked'">Кнопку нажали</login-comp>
     <basicSetup-comp *ngIf="formState === 'vhod'"></basicSetup-comp>
-
-    <!--
-    <button (click)="buttonClk()">Менять</button>
-    <login-comp *ngIf="buttonState === 'clicked'">Кнопку нажали</login-comp>
-    <example-comp *ngIf="buttonState === 'unclicked'"
-      >Кнопку отжали</example-comp
-    >
-    -->
   `,
 })
 export class AppComponent {
