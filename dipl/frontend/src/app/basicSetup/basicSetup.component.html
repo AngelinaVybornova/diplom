@@ -1,0 +1,25 @@
+<div class="center">
+  <div>Размер поля MxN в пикселях:</div>
+  <br />
+  <div>M =</div>
+  <input [(ngModel)]="M" type="text" placeholder="" />
+  <div>N =</div>
+  <input [(ngModel)]="N" type="text" placeholder="" />
+  <br />
+  <div>Максимальное количество организмов на карте</div>
+  <br />
+  <input [(ngModel)]="maxOrgNum" type="range" min="1" max="100" value="50" />
+  <br />
+  <div>Частота появления пищи:</div>
+  <br />
+  <input
+    [(ngModel)]="foodProbability"
+    type="range"
+    min="1"
+    max="100"
+    value="50"
+  />
+  <br />
+  <button (click)="firstPopulation()">Настройка первой популяции</button>
+  <button (click)="autoPopulation()">Автоматическая генерация</button>
+</div>
