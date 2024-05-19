@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { AppComponent } from "../app.component";
 
 @Component({
   selector: "basicSetup-comp",
@@ -16,21 +17,17 @@ export class BasicSetupComponent {
   public foodProbability: number = 0;
   public maxOrgNum: number = 0;
 
-  public firstPopulation(): void {
-    //mm
-  }
-  public autoPopulation(): void {
-    //mm
+  appComponentClass: AppComponent;
+
+  constructor(_appComponentClass: AppComponent) {
+    this.appComponentClass = _appComponentClass;
   }
 
-  public buttonClk(): void {
-    if (this.buttonState === "unclicked") {
-      this.buttonState = "clicked";
-      console.log("click", this.buttonState); //так выводим логи для дебага, смотри их в консоли браузера
-    } else {
-      this.buttonState = "unclicked";
-      console.log("unclick", this.buttonState);
-    }
+  public buttonClkStartSimulation(): void {
+    this.appComponentClass.formChange.next("startSim");
   }
+  //public autoPopulation(): void {
+  //mm
+  //}
   // тут пишем логику на typescript
 }
