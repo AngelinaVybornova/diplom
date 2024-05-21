@@ -9,6 +9,7 @@
   HTML input Placeholder Attribute
 </h2>
 -->
+<!--
 <div class="center">
   <input [(ngModel)]="login" type="text" placeholder="" />
   <br />
@@ -16,4 +17,81 @@
   <br />
   <button (click)="buttonClkVhod()">Вход</button>
   <button (click)="buttonClkRegistration()">Регистрация</button>
+</div>
+-->
+<div class="parent">
+  <div
+    class="container"
+    [ngClass]="isSignDivVisiable ? 'active' : ''"
+    id="container"
+  >
+    <div class="form-container sign-up">
+      <form>
+        <h1>Cоздать аккаунт</h1>
+        <span></span>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="signUpObj.name"
+          placeholder="Name"
+        />
+
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="signUpObj.password"
+          placeholder="Password"
+        />
+        <button (click)="buttonClkRegistration()">Зарегестрироваться</button>
+      </form>
+    </div>
+    <div class="form-container sign-in">
+      <form>
+        <h1>Авторизация</h1>
+        <span> </span>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="signUpObj.name"
+          placeholder="Name"
+        />
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="loginObj.password"
+          placeholder="Password"
+        />
+
+        <button (click)="buttonClkVhod()">Войти</button>
+      </form>
+    </div>
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Добро пожаловать!</h1>
+          <p>Введите своё имя и пароль, чтобы использовать все функции сайта</p>
+          <button
+            type="button"
+            class="hidden"
+            id="login"
+            (click)="isSignDivVisiable = false"
+          >
+            Вход
+          </button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Привет, друг!</h1>
+          <p>Зарегистрируйся, чтобы использовать все функции сайта</p>
+          <button
+            type="button"
+            class="hidden"
+            id="register"
+            (click)="isSignDivVisiable = true"
+          >
+            Регистрация
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

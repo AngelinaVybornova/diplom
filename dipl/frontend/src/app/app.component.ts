@@ -20,10 +20,24 @@ import { Subject, takeUntil } from "rxjs";
   ], //указываем тут
   template: `
     <login-comp *ngIf="formState === 'unclicked'">Кнопку нажали</login-comp>
-    <basicSetup-comp *ngIf="formState === 'vhod'"></basicSetup-comp>
-    <basicSetup-comp *ngIf="formState === 'registration'"></basicSetup-comp>
-    <simulationForm-comp *ngIf="formState === 'startSim'"></simulationForm-comp>
-    <basicSetup-comp *ngIf="formState === 'stopSim'"></basicSetup-comp>
+    <login-comp *ngIf="formState === 'vihod'">Кнопку нажали</login-comp>
+    <basicSetup-comp
+      (onChanged)="onChanged($event)"
+      *ngIf="formState === 'vhod'"
+    ></basicSetup-comp>
+    <basicSetup-comp
+      (onChanged)="onChanged($event)"
+      *ngIf="formState === 'registration'"
+    ></basicSetup-comp>
+    <simulationForm-comp
+      *ngIf="formState === 'startSim'"
+      [M]="aM"
+      [N]="aN"
+    ></simulationForm-comp>
+    <basicSetup-comp
+      (onChanged)="onChanged($event)"
+      *ngIf="formState === 'stopSim'"
+    ></basicSetup-comp>
   `,
 })
 export class AppComponent {
@@ -31,6 +45,14 @@ export class AppComponent {
   public formState = "unclicked";
   public formChange = new Subject<string>();
   unsubscribe = new Subject<void>();
+  aM = 300;
+  aN = 700;
+
+  onChanged(sizePole: IsizePole) {
+    this.aM = sizePole.bM;
+    console.log("ususu", sizePole, sizePole.bM, sizePole.bN);
+    this.aN = sizePole.bN;
+  }
 
   public ngOnInit(): void {
     this.formChange.pipe(takeUntil(this.unsubscribe)).subscribe((state) => {
@@ -42,4 +64,8 @@ export class AppComponent {
     console.log("ююююююхухх");
     this.unsubscribe.next();
   }
+}
+interface IsizePole {
+  bM: number;
+  bN: number;
 }

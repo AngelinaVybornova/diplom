@@ -1,16 +1,38 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+        <h1 class="ligo">Эволюция</h1>
+      </li>
+    </ul>
+    <form class="d-flex">
+      <!--span class="text-white">{{ loggedUser?.email }} </span-->
+      <button class="btn btn-primary" type="button" (click)="buttonClkVihod()">
+        Выход
+      </button>
+    </form>
+  </div>
+</nav>
+
 <div class="center">
-  <div>Размер поля MxN в пикселях:</div>
+  <h2>Размер поля MxN в пикселях:</h2>
   <br />
-  <div>M =</div>
-  <input [(ngModel)]="M" type="text" placeholder="" />
-  <div>N =</div>
-  <input [(ngModel)]="N" type="text" placeholder="" />
+  <div class="form-container dimensions">
+    <form>
+      <h3>M =</h3>
+      <input class="pole" [(ngModel)]="bM" type="text" placeholder="" />
+    </form>
+    <form>
+      <h3>N =</h3>
+      <input class="pole" [(ngModel)]="bN" type="text" placeholder="" />
+    </form>
+  </div>
   <br />
-  <div>Максимальное количество организмов на карте</div>
+  <h3>Максимальное количество организмов на карте</h3>
   <br />
   <input [(ngModel)]="maxOrgNum" type="range" min="1" max="100" value="50" />
   <br />
-  <div>Частота появления пищи:</div>
+  <h3>Частота появления пищи:</h3>
   <br />
   <input
     [(ngModel)]="foodProbability"
@@ -20,7 +42,7 @@
     value="50"
   />
   <br />
-  <button (click)="buttonClkStartSimulation()">Начать симуляцию</button>
+  <button (click)="buttonClkStartSimulation(bM, bN)">Начать симуляцию</button>
   <!--
   <button (click)="autoPopulation()">Автоматическая генерация</button>
   -->

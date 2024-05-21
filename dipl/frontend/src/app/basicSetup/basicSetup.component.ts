@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from "../app.component";
 
@@ -12,8 +12,8 @@ import { AppComponent } from "../app.component";
 })
 export class BasicSetupComponent {
   public buttonState = "unclicked";
-  public M = "";
-  public N = "";
+  public bM: number;
+  public bN: number;
   public foodProbability: number = 0;
   public maxOrgNum: number = 0;
 
@@ -23,8 +23,14 @@ export class BasicSetupComponent {
     this.appComponentClass = _appComponentClass;
   }
 
-  public buttonClkStartSimulation(): void {
+  @Output() onChanged = new EventEmitter<{ bM: number; bN: number }>();
+  public buttonClkStartSimulation(bM: number, bN: number): void {
+    this.onChanged.emit({ bM, bN });
+    console.log("fdfdfdfd", this.bM, this.bN);
     this.appComponentClass.formChange.next("startSim");
+  }
+  public buttonClkVihod(): void {
+    this.appComponentClass.formChange.next("vihod");
   }
   //public autoPopulation(): void {
   //mm

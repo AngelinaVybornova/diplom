@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+* {
+  font-family: "Montserrat", sans-serif;
+}
 .example {
   color: darkgreen;
   background-color: cadetblue; //тут пишем стили
@@ -6,5 +10,36 @@
   text-align: center;
 }
 button {
-  background-color: chocolate;
+  background-color: rgb(147, 210, 30);
+}
+.ligo {
+  font-family: "Montserrat", sans-serif;
+  float: none;
+  color: rgb(166, 255, 0);
+}
+.pole {
+  background-color: #eee;
+  border: none;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 20%;
+  outline: none;
+}
+.center form {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 0 40px;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+h2 {
+  padding-top: 50px;
+}
+h3 {
+  padding-right: 10px;
 }
