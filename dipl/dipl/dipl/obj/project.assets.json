@@ -88,6 +88,29 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "evoSim.data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/evoSim.data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/evoSim.data.dll": {}
+        }
+      },
+      "evoSim.logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "evoSim.data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/evoSim.logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/evoSim.logic.dll": {}
+        }
       }
     }
   },
@@ -429,11 +452,23 @@
         "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "evoSim.data/1.0.0": {
+      "type": "project",
+      "path": "../evoSim.data/evoSim.data.csproj",
+      "msbuildProject": "../evoSim.data/evoSim.data.csproj"
+    },
+    "evoSim.logic/1.0.0": {
+      "type": "project",
+      "path": "../evoSim.logic/evoSim.logic.csproj",
+      "msbuildProject": "../evoSim.logic/evoSim.logic.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Swashbuckle.AspNetCore >= 6.5.0"
+      "Swashbuckle.AspNetCore >= 6.5.0",
+      "evoSim.data >= 1.0.0",
+      "evoSim.logic >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -463,20 +498,31 @@
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "D:\\tru\\test-nuggets": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj": {
+              "projectPath": "D:\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj"
+            },
+            "D:\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj": {
+              "projectPath": "D:\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -507,7 +553,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

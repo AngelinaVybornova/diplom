@@ -24,9 +24,14 @@ D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets.pack.json
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets.build.json
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets.development.json
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\scopedcss\bundle\evoSim.web.styles.css
-D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.csproj.CopyComplete
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.dll
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\refint\evoSim.web.dll
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.pdb
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.genruntimeconfig.cache
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\ref\evoSim.web.dll
+D:\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.data.dll
+D:\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.logic.dll
+D:\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.data.pdb
+D:\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.logic.pdb
+D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.sourcelink.json
+D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.csproj.Up2Date
