@@ -28,19 +28,34 @@
     </form>
   </div>
   <br />
-  <h3>Максимальное количество организмов на карте</h3>
+  <h3>Максимальное количество организмов на карте: {{ maxOrgNum }}</h3>
   <br />
-  <input [(ngModel)]="maxOrgNum" type="range" min="1" max="100" value="50" />
+  <div class="range-slider">
+    <input
+      type="range"
+      min="0"
+      max="100"
+      value="0"
+      class="slider"
+      id="myRange"
+      (input)="maxOrgInputChange($event)"
+    />
+  </div>
   <br />
-  <h3>Частота появления пищи:</h3>
+  <h3>Частота появления пищи: {{ foodProbability }}</h3>
   <br />
-  <input
-    [(ngModel)]="foodProbability"
-    type="range"
-    min="1"
-    max="100"
-    value="50"
-  />
+  <div class="range-slider">
+    <input
+      type="range"
+      min="0.0"
+      max="1.0"
+      value="0"
+      step="0.1"
+      class="slider"
+      id="myRange"
+      (input)="foodInputChange($event)"
+    />
+  </div>
   <br />
   <button (click)="buttonClkStartSimulation(bM, bN)">Начать симуляцию</button>
   <!--

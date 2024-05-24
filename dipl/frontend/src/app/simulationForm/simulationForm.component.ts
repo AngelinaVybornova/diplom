@@ -39,8 +39,9 @@ export class SimulationFormComponent {
       .querySelector(".field")
       ?.getBoundingClientRect();
     if (!rect1) return { update: () => {} }; // Проверка на наличие rect
-    const vspeed: number = 100;
-    const aspeed: number = 2 * Math.PI;
+    let vspeed: number = 50;
+    const aspeed: number = 10 * Math.PI;
+    const p = document.createElement("img");
     let lastT: number = 0;
     let lastTargetTime: number = -100;
     let a: number = 0;
@@ -48,6 +49,7 @@ export class SimulationFormComponent {
     let y: number = Math.random() * (rect1.width - 20);
     let tx: number = Math.random() * (rect1.width - 20);
     let ty: number = Math.random() * (rect1.width - 20);
+    let dxy: number = 0;
 
     const update = (t: number) => {
       const rect: DOMRect | null = document
@@ -55,13 +57,30 @@ export class SimulationFormComponent {
         ?.getBoundingClientRect();
       if (!rect) return; // Проверка на наличие rect
 
-      if (t >= lastTargetTime + 1.5 + Math.random()) {
+      if (t >= lastTargetTime + 3) {
+        p.remove;
         tx = Math.random() * (rect.width - 20); // Ограничение по ширине
         ty = Math.random() * (rect.height - 20); // Ограничение по высоте
+        console.log("coords", tx, ty);
+        //t = t * 1000;
         lastTargetTime = t;
       }
 
       const dt: number = t - lastT;
+      const app = document.getElementsByClassName("field")[0];
+
+      p.src = "https://svgshare.com/i/t12.svg";
+      p.style.position = "absolute";
+      p.style.left = tx + "px";
+      p.style.top = ty + "px";
+
+      app?.appendChild(p);
+      (app as HTMLElement).style.backgroundColor = "red";
+      //console.log("новое", tx, ty);
+
+      dxy = Math.sqrt(Math.pow(tx - x, 2) + Math.pow(ty - y, 2)) / 1000;
+      vspeed = dxy / dt;
+      //console.log("скорость", vspeed, dt, dxy);
 
       const ta: number = Math.atan2(ty - y, tx - x);
       for (; a < ta; a += 2 * Math.PI) {}
@@ -72,9 +91,11 @@ export class SimulationFormComponent {
       } else {
         a = Math.max(ta, a2 - dt * aspeed);
       }
-
-      x += dt * vspeed * Math.cos(a);
-      y += dt * vspeed * Math.sin(a);
+      console.log("xxx", tx, ty);
+      for (let frame = 0; frame < 20; frame++) {
+        x += dt * vspeed * Math.cos(a);
+        y += dt * vspeed * Math.sin(a);
+      }
       icon.style.left = x + "px";
       icon.style.top = y + "px";
       icon.style.transform = "rotate(" + ((180 * a) / Math.PI - 135) + "deg)";

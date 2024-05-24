@@ -2,7 +2,13 @@
   color: darkgreen;
   background-color: cadetblue; //тут пишем стили
 }
+.ligo {
+  font-family: "Montserrat", sans-serif;
+  float: none;
+  color: rgb(166, 255, 0);
+}
 .field {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   text-align: center;

@@ -36,4 +36,11 @@ export class BasicSetupComponent {
   //mm
   //}
   // тут пишем логику на typescript
+
+  foodInputChange(event: any) {
+    this.foodProbability = event.target.value;
+  }
+  maxOrgInputChange(event: any) {
+    this.maxOrgNum = event.target.value;
+  }
 }
