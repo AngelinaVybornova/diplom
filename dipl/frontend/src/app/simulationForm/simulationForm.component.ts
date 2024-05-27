@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from "../app.component";
+import { Svg } from "./svgImage";
 
 @Component({
   selector: "simulationForm-comp",
@@ -15,6 +16,7 @@ export class SimulationFormComponent {
   @Input() N: number = 0;
 
   appComponentClass: AppComponent;
+  svgClass: Svg;
 
   constructor(_appComponentClass: AppComponent) {
     this.appComponentClass = _appComponentClass;
@@ -24,9 +26,11 @@ export class SimulationFormComponent {
     this.appComponentClass.formChange.next("stopSim");
   }
   // тут пишем логику на typescript
-  private cockroaches: { update: (t: number) => void }[] = [];
+  public animals = 3;
+  private cockroaches: { update: (t: number, isUpd: boolean) => void }[] = [];
 
   ngOnInit(): void {
+    this.svgClass = new Svg();
     const bugIcons = document.getElementsByClassName("bug-icon");
     for (let i = 0; i < bugIcons.length; i++) {
       this.makeCockroach(bugIcons[i] as HTMLElement);
@@ -34,7 +38,9 @@ export class SimulationFormComponent {
     this.step();
   }
 
-  makeCockroach(icon: HTMLElement): { update: (t: number) => void } {
+  makeCockroach(icon: HTMLElement): {
+    update: (t: number, isUpd: boolean) => void;
+  } {
     const rect1: DOMRect | null = document
       .querySelector(".field")
       ?.getBoundingClientRect();
@@ -51,30 +57,64 @@ export class SimulationFormComponent {
     let ty: number = Math.random() * (rect1.width - 20);
     let dxy: number = 0;
 
-    const update = (t: number) => {
+    const svg = document.createElement("div");
+    /*
+    svg.classList.add("bug-icon");
+    const desiredColor = "#00fa00";
+    let add1 = this.svgClass.body1;
+    add1 = add1.replace(/fill="#000000"/, `fill="${desiredColor}"`);
+    svg.innerHTML = add1;
+    */
+    //const lastFillElement = svg.querySelector("[fill]"); // Найдите последний элемент с атрибутом fill
+    //lastFillElement?.setAttribute("fill", "#00fa00");
+    //console.log("картинка", svg);
+
+    //svg.classList.add("bug-icon");
+    const app = document.getElementsByClassName("field")[0];
+    const desiredColor = "#00fa00";
+    let add1 = this.svgClass.body2;
+    add1 = add1.replace(/fill="#000000"/, `fill="${desiredColor}"`);
+    svg.innerHTML = add1;
+    console.log("картинка", svg);
+    app?.appendChild(svg);
+
+    const update = (t: number, isUpd: boolean) => {
       const rect: DOMRect | null = document
         .querySelector(".field")
         ?.getBoundingClientRect();
       if (!rect) return; // Проверка на наличие rect
 
-      if (t >= lastTargetTime + 3) {
+      if (t >= lastTargetTime + 3 && isUpd == true) {
+        //----------------Вызов метода для вызова бека--------------
         p.remove;
+        svg.remove;
+        tx = Math.random() * (rect.width - 20); // Ограничение по ширине
+        ty = Math.random() * (rect.height - 20); // Ограничение по высоте
+        //console.log("coords", tx, ty);
+        //t = t * 1000;
+        lastTargetTime = t;
+        console.log("счет", isUpd);
+      } else if (t >= lastTargetTime + 3 && isUpd == false) {
+        p.remove;
+        svg.remove;
         tx = Math.random() * (rect.width - 20); // Ограничение по ширине
         ty = Math.random() * (rect.height - 20); // Ограничение по высоте
         console.log("coords", tx, ty);
         //t = t * 1000;
         lastTargetTime = t;
+        console.log("счет", isUpd);
       }
 
       const dt: number = t - lastT;
-      const app = document.getElementsByClassName("field")[0];
 
+      //svg.innerHTML = "";
       p.src = "https://svgshare.com/i/t12.svg";
       p.style.position = "absolute";
       p.style.left = tx + "px";
       p.style.top = ty + "px";
 
       app?.appendChild(p);
+
       (app as HTMLElement).style.backgroundColor = "red";
       //console.log("новое", tx, ty);
 
@@ -91,8 +131,8 @@ export class SimulationFormComponent {
       } else {
         a = Math.max(ta, a2 - dt * aspeed);
       }
-      console.log("xxx", tx, ty);
-      for (let frame = 0; frame < 20; frame++) {
+      //console.log("xxx", tx, ty);
+      for (let frame = 0; frame < 30; frame++) {
         x += dt * vspeed * Math.cos(a);
         y += dt * vspeed * Math.sin(a);
       }
@@ -109,8 +149,16 @@ export class SimulationFormComponent {
 
   step() {
     const t: number = performance.now() / 1000;
+    let count = 0;
+    let isUpd: boolean = false;
     for (const cockroach of this.cockroaches) {
-      cockroach.update(t);
+      count = count + 1;
+      if (count == this.animals) {
+        isUpd = true;
+        count = 0;
+      }
+      cockroach.update(t, isUpd);
+      isUpd = false;
     }
     window.requestAnimationFrame(() => this.step());
   }
