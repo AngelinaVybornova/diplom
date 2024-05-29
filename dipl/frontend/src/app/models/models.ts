@@ -34,7 +34,7 @@ export class StartPopulaton
 {
     public animalList: Animal[];
     public numOfSpecies: number;
-    public numOfAnimalsInSpecies: { [animal: Animal]: number};
+    public numOfAnimalsInSpecies: Map<Animal, number>;
 }
 
 export class CurrentState
@@ -59,13 +59,13 @@ export enum EnType
 
 export class Animal extends Entity
 {
-    public string genome;
-    public int hunger;
-    public int health;
-    public Entity? target;
-    public int turnAngle;
-    public State state;
-    public DecipheredGenome decipheredGenome;
+    public genome: string;
+    public hunger: number;
+    public health: number;
+    public target: Entity | null;
+    public turnAngle: number;
+    public state: State;
+    public decipheredGenome: DecipheredGenome;
 }
 
 export enum State
@@ -77,37 +77,37 @@ export enum State
 }
 
 export class DecipheredGenome {
-    public bool diet;
-    public Color headColor;
-    public Color bodyColor;
-    public Color eyeColor;
-    public int mouthType;
-    public int eyeType;
-    public int headType;
-    public int bodyType;
-    public int additionalType;
-    public int maxHealth;
-    public int speed;
-    public int biteForce;
-    public int panicTime;
-    public bool reprodType;
+    public diet: boolean;
+    public headColor: Color;
+    public bodyColor: Color;
+    public eyeColor: Color;
+    public mouthType: number;
+    public eyeType: number;
+    public headType: number;
+    public bodyType: number;
+    public additionalType: number;
+    public maxHealth: number;
+    public speed: number;
+    public biteForce: number;
+    public panicTime: number;
+    public reprodType: boolean;
 }
 
 export class Color
 {
-    public int R;
-    public int G;
-    public int B;
+    public R: number;
+    public G: number;
+    public B: number;
 }
 
 export class AnimalInfo
 {
-    public int panicTimer;
-    public int reprTimer;
-    public bool isAttacked;
+    public panicTimer: number;
+    public reprTimer: number;
+    public isAttacked: boolean;
 }
 
 export class Food extends Entity
 {
-    public bool type;
+    public type: boolean;
 }

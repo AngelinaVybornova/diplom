@@ -3,22 +3,28 @@ import { Component, Input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from "../app.component";
 import { Svg } from "./svgImage";
+import { CurrentState, User, UserData } from "../models/models";
+import { lastValueFrom } from "rxjs";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @Component({
   selector: "simulationForm-comp",
   templateUrl: "./simulationForm.component.html",
   styleUrls: ["./simulationForm.component.scss"],
   standalone: true,
-  imports: [CommonModule, FormsModule], //чтобы работало *ngIf
+  imports: [CommonModule, FormsModule, HttpClientModule], //чтобы работало *ngIf
 })
 export class SimulationFormComponent {
   @Input() M: number = 0;
   @Input() N: number = 0;
+  @Input() user: User;
+  @Input() state: CurrentState;
 
   appComponentClass: AppComponent;
   svgClass: Svg;
+  userData = new UserData;
 
-  constructor(_appComponentClass: AppComponent) {
+  constructor(_appComponentClass: AppComponent, private http: HttpClient) {
     this.appComponentClass = _appComponentClass;
   }
 
@@ -31,11 +37,20 @@ export class SimulationFormComponent {
 
   ngOnInit(): void {
     this.svgClass = new Svg();
+    console.log("state", this.state);
+    this.userData.User = this.user;
+    this.userData.CurrentState = this.state;
+    this.callNewState();
+    console.log("newState", this.userData.CurrentState);
     const bugIcons = document.getElementsByClassName("bug-icon");
     for (let i = 0; i < bugIcons.length; i++) {
       this.makeCockroach(bugIcons[i] as HTMLElement);
     }
     this.step();
+  }
+
+  async callNewState () {
+    this.userData.CurrentState = await this.mainSimLoop(this.userData);
   }
 
   makeCockroach(icon: HTMLElement): {
@@ -99,7 +114,7 @@ export class SimulationFormComponent {
         svg.remove;
         tx = Math.random() * (rect.width - 20); // Ограничение по ширине
         ty = Math.random() * (rect.height - 20); // Ограничение по высоте
-        console.log("coords", tx, ty);
+        //console.log("coords", tx, ty);
         //t = t * 1000;
         lastTargetTime = t;
         console.log("счет", isUpd);
@@ -161,5 +176,9 @@ export class SimulationFormComponent {
       isUpd = false;
     }
     window.requestAnimationFrame(() => this.step());
+  }
+
+  public async mainSimLoop(data: UserData): Promise<CurrentState> {
+    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/mainSimLoop`, data)) as Promise<CurrentState>; //не проверено
   }
 }

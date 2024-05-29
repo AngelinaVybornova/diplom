@@ -8,6 +8,6 @@ namespace evoSim.data
 {
     public class Food: Entity
     {
-        public bool type;
+        public bool type { get; set; } = false;
     }
 }

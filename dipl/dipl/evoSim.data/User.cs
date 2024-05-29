@@ -8,26 +8,26 @@ namespace evoSim.data
 {
     public class User
     {
-        public string login;
-        public string password;
+        public string login { get; set; } = String.Empty;
+        public string password { get; set; } = String.Empty;
     }
 
     public class UserData
     {
-        public User User;
-        public CurrentState CurrentState;
+        public User User { get; set; } = null;
+        public CurrentState CurrentState { get; set; } = null;
     }
 
     public class UserFirstRandom
     {
-        public User User;
-        public MapSettings mapSettings;
+        public User User { get; set; } = null;
+        public MapSettings mapSettings { get; set; } = null;
     }
 
     public class UserFirstSettings
     {
-        public User User;
-        public StartPopulaton startPopulaton;
-        public MapSettings mapSettings;
+        public User User { get; set; } = null;
+        public StartPopulaton startPopulaton { get; set; } = null;
+        public MapSettings mapSettings { get; set; } = null;
     }
 }

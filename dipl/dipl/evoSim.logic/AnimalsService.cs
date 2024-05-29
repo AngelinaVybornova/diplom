@@ -105,7 +105,8 @@ namespace evoSim.logic
 
         private int GenerateStartNumber(int animalsCap)
         {
-            return animalsCap / 100 * _startNumPercent;
+            double percent = (double)animalsCap / 100.0;
+            return (int)(percent * _startNumPercent);
         }
 
         public int[] GenerateRandomCoords(int[] mapSize)

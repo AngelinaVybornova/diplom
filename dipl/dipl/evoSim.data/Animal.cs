@@ -9,13 +9,13 @@ namespace evoSim.data
 {
     public class Animal : Entity
     {
-        public string genome;
-        public int hunger;
-        public int health;
-        public Entity? target;
-        public int turnAngle;
-        public State state;
-        public DecipheredGenome decipheredGenome;
+        public string genome { get; set; } = null;
+        public int hunger { get; set; } = 0;
+        public int health { get; set; } = 0;
+        public Entity? target { get; set; } = null;
+        public int turnAngle { get; set; } = 0;
+        public State state { get; set; } = State.Wandering;
+        public DecipheredGenome decipheredGenome { get; set; } = null;
     }
 
     public enum State
@@ -27,33 +27,33 @@ namespace evoSim.data
     }
 
     public class DecipheredGenome {
-        public bool diet;
-        public Color headColor;
-        public Color bodyColor;
-        public Color eyeColor;
-        public int mouthType;
-        public int eyeType;
-        public int headType;
-        public int bodyType;
-        public int additionalType;
-        public int maxHealth;
-        public int speed;
-        public int biteForce;
-        public int panicTime;
-        public bool reprodType;
+        public bool diet { get; set; } = false;
+        public Color headColor { get; set; } = null;
+        public Color bodyColor { get; set; } = null;
+        public Color eyeColor { get; set; } = null;
+        public int mouthType { get; set; } = 0;
+        public int eyeType { get; set; } = 0;
+        public int headType { get; set; } = 0;
+        public int bodyType { get; set; } = 0;
+        public int additionalType { get; set; } = 0;
+        public int maxHealth { get; set; } = 0;
+        public int speed { get; set; } = 0;
+        public int biteForce { get; set; } = 0;
+        public int panicTime { get; set; } = 0;
+        public bool reprodType { get; set; } = false;
     }
 
     public class Color
     {
-        public int R;
-        public int G;
-        public int B;
+        public int R { get; set; } = 0;
+        public int G { get; set; } = 0;
+        public int B { get; set; } = 0;
     }
 
     public class AnimalInfo
     {
-        public int panicTimer;
-        public int reprTimer;
-        public bool isAttacked;
+        public int panicTimer { get; set; } = 0;
+        public int reprTimer { get; set; } = 0  ;
+        public bool isAttacked { get; set; } = false;
     }
 }

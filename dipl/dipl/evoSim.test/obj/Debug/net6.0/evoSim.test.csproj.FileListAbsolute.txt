@@ -12,9 +12,10 @@ D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.test.GeneratedMSBuildEdi
 D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.test.AssemblyInfoInputs.cache
 D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.test.AssemblyInfo.cs
 D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.test.csproj.CoreCompileInputs.cache
-D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.test.csproj.CopyComplete
 D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.test.dll
 D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\refint\evoSim.test.dll
 D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.test.pdb
 D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.test.genruntimeconfig.cache
 D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\ref\evoSim.test.dll
+D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.test.sourcelink.json
+D:\diplom\dipl\dipl\evoSim.test\obj\Debug\net6.0\evoSim.t.11AEB32C.Up2Date

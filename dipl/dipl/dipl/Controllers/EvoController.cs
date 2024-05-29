@@ -1,10 +1,12 @@
 using evoSim.data;
 using evoSim.logic;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dipl.Controllers
 {
     [ApiController]
+    //[EnableCors("AllowSpecificOrigin")]
     [Route("evoSim")]
     public class EvoController : ControllerBase
     {
@@ -12,38 +14,38 @@ namespace dipl.Controllers
         SimService simService = new SimService();
 
         [HttpPost("checkUser")]
-        public bool isRegistered(User user)
+        public bool isRegistered([FromBody] User user)
         {
             //smth
             return true;
         }
 
         [HttpPost("login")]
-        public bool Login(User user)
+        public bool Login([FromBody] User user)
         {
             return true;
         }
 
         [HttpPost("signUp")]
-        public bool SignUp(User user)
+        public bool SignUp([FromBody] User user)
         {
             return true;
         }
 
-        [HttpGet("generateRandomly")]
-        public CurrentState GenerateRandomly(UserFirstRandom userFirstRandom)
+        [HttpPost("generateRandomly")]
+        public CurrentState GenerateRandomly([FromBody] UserFirstRandom userFirstRandom)
         {
             return animalsService.GenerateRandomly(userFirstRandom.mapSettings);
         }
 
-        [HttpGet("generateFromSettings")]
-        public CurrentState GenerateFromSettings(UserFirstSettings userFirstSettings)
+        [HttpPost("generateFromSettings")]
+        public CurrentState GenerateFromSettings([FromBody] UserFirstSettings userFirstSettings)
         {
             return animalsService.GenerateFromSettings(userFirstSettings.mapSettings, userFirstSettings.startPopulaton);
         }
 
-        [HttpGet("mainSimLoop")]
-        public CurrentState MainSimLoop(UserData userData)
+        [HttpPost("mainSimLoop")]
+        public CurrentState MainSimLoop([FromBody] UserData userData)
         {
             return simService.MainSimLoop(userData.CurrentState);
         }

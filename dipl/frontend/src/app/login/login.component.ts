@@ -1,14 +1,17 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from "../app.component";
+import { User } from "../models/models";
+import { Observable, lastValueFrom } from "rxjs";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @Component({
   selector: "login-comp",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"],
   standalone: true,
-  imports: [CommonModule, FormsModule], //чтобы работало *ngIf
+  imports: [CommonModule, FormsModule, HttpClientModule], //чтобы работало *ngIf
 })
 export class LoginComponent {
   isSignDivVisiable: boolean = true;
@@ -22,16 +25,41 @@ export class LoginComponent {
   appComponentClass: AppComponent;
   router: any;
 
-  constructor(_appComponentClass: AppComponent) {
+  constructor(_appComponentClass: AppComponent, private http: HttpClient) {
     this.appComponentClass = _appComponentClass;
   }
 
-  public buttonClkVhod(): void {
+  @Output() public userSet = new EventEmitter<User>();
+
+  public async buttonClkVhod(): Promise<void> {
+    let usr = new User();
+    usr.login = this.loginObj.name;
+    usr.password = this.loginObj.password;
+    let isExist = await this.logIn(usr);
+    console.log("login", isExist);
+    //console.log("1");
+    this.userSet.emit(usr);
+    //console.log("user sent1", usr, this.loginObj);
     this.appComponentClass.formChange.next("vhod");
   }
   public buttonClkRegistration(): void {
+    let usr = new User();
+    usr.login = this.signUpObj.name;
+    usr.password = this.signUpObj.password;
+    var isRegistered = this.signUp(usr);
+    //console.log("2");
+    this.userSet.emit(usr);
+    //console.log("user sent2", usr, this.signUpObj);
     this.appComponentClass.formChange.next("registration");
     // тут пишем логику на typescript
+  }
+
+  public async logIn(data: User): Promise<boolean> {
+    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/login`, data)) as Promise<boolean>;
+  }
+
+  public async signUp(data: User): Promise<boolean> {
+    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/signUp`, data)) as Promise<boolean>;
   }
 
   onRegister() {

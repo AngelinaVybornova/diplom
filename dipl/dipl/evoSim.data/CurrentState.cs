@@ -8,8 +8,8 @@ namespace evoSim.data
 {
     public class CurrentState
     {
-        public MapSettings map;
-        public List<Animal> animals;
-        public  List<Food> food;
+        public MapSettings map { get; set; } = null;
+        public List<Animal> animals { get; set; } = null;
+        public  List<Food> food { get; set; } = null;
     }
 }

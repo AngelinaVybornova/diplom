@@ -1,16 +1,22 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from "../app.component";
+import { HttpClient } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
+import { CurrentState, MapSettings, User, UserFirstRandom, UserFirstSettings } from "../models/models";
+import { Observable, lastValueFrom } from "rxjs";
 
 @Component({
   selector: "basicSetup-comp",
   templateUrl: "./basicSetup.component.html",
   styleUrls: ["./basicSetup.component.scss"],
   standalone: true,
-  imports: [CommonModule, FormsModule], //чтобы работало *ngIf
+  imports: [CommonModule, FormsModule, HttpClientModule], //чтобы работало *ngIf
 })
 export class BasicSetupComponent {
+  @Input() user: User;
+
   public buttonState = "unclicked";
   public bM: number;
   public bN: number;
@@ -18,16 +24,27 @@ export class BasicSetupComponent {
   public maxOrgNum: number = 0;
 
   appComponentClass: AppComponent;
-
-  constructor(_appComponentClass: AppComponent) {
+  state: CurrentState;
+  constructor(_appComponentClass: AppComponent, private http: HttpClient) {
     this.appComponentClass = _appComponentClass;
+    //console.log("basic", this.user);
   }
 
   @Output() onChanged = new EventEmitter<{ bM: number; bN: number }>();
-  public buttonClkStartSimulation(bM: number, bN: number): void {
+  @Output() stateFormed = new EventEmitter<CurrentState>();
+  public async buttonClkStartSimulation(bM: number, bN: number): Promise<void> {
     this.onChanged.emit({ bM, bN });
-    console.log("fdfdfdfd", this.bM, this.bN);
+    const mapSettings = new MapSettings();
+    mapSettings.size = [this.bM, this.bN];
+    mapSettings.animalsCap = this.maxOrgNum;
+    mapSettings.foodAppearenceProb = this.foodProbability;
+    const userFirstRandom = new UserFirstRandom();
+    userFirstRandom.User = this.user;
+    userFirstRandom.mapSettings = mapSettings;
+    this.state = await this.generateRandomly(userFirstRandom);
+    console.log("state", this.state);
     this.appComponentClass.formChange.next("startSim");
+    this.stateFormed.emit(this.state);
   }
   public buttonClkVihod(): void {
     this.appComponentClass.formChange.next("vihod");
@@ -42,5 +59,13 @@ export class BasicSetupComponent {
   }
   maxOrgInputChange(event: any) {
     this.maxOrgNum = event.target.value;
+  }
+
+  public async generateRandomly(data: UserFirstRandom): Promise<CurrentState> {
+    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/generateRandomly`, data)) as Promise<CurrentState>;
+  }
+
+  public async generateFromSettings(data: UserFirstSettings): Promise<CurrentState> {
+    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/generateFromSettings`, data)) as Promise<CurrentState>; //не проверено
   }
 }

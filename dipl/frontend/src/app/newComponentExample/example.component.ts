@@ -14,10 +14,10 @@ export class ExampleComponent {
     public buttonClk(): void {
         if (this.buttonState === "unclicked") {
             this.buttonState = "clicked";
-            console.log("click", this.buttonState); //так выводим логи для дебага, смотри их в консоли браузера
+            //console.log("click", this.buttonState); //так выводим логи для дебага, смотри их в консоли браузера
         } else {
             this.buttonState = "unclicked";
-            console.log("unclick", this.buttonState);
+            //console.log("unclick", this.buttonState);
         }
     }
  // тут пишем логику на typescript
