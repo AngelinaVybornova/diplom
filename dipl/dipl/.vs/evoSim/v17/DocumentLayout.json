@@ -1,0 +1,284 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE336D03-6D0C-41E4-99A0-E744F05BE67E}|evoSim.logic\\evoSim.logic.csproj|d:\\\u0438\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\diplom\\diplom\\dipl\\dipl\\evosim.logic\\simservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE336D03-6D0C-41E4-99A0-E744F05BE67E}|evoSim.logic\\evoSim.logic.csproj|solutionrelative:evosim.logic\\simservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\controllers\\evocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|solutionrelative:dipl\\controllers\\evocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE336D03-6D0C-41E4-99A0-E744F05BE67E}|evoSim.logic\\evoSim.logic.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evosim.logic\\animalsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE336D03-6D0C-41E4-99A0-E744F05BE67E}|evoSim.logic\\evoSim.logic.csproj|solutionrelative:evosim.logic\\animalsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evosim.data\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|solutionrelative:evosim.data\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|solutionrelative:dipl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E45BF31E-8767-44F4-A444-1FA97F383EF9}|evoSim.test\\evoSim.test.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evosim.test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E45BF31E-8767-44F4-A444-1FA97F383EF9}|evoSim.test\\evoSim.test.csproj|solutionrelative:evosim.test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evosim.data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|solutionrelative:evosim.data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evosim.data\\currentstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|solutionrelative:evosim.data\\currentstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evosim.data\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|solutionrelative:evosim.data\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evosim.data\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|solutionrelative:evosim.data\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evosim.data\\startpopulaton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|solutionrelative:evosim.data\\startpopulaton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evosim.data\\mapsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76084D9D-0830-4C31-8368-95ADE9D025D5}|evoSim.data\\evoSim.data.csproj|solutionrelative:evosim.data\\mapsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|solutionrelative:dipl\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|solutionrelative:dipl\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|solutionrelative:dipl\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\evosim.web.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{7BF56BC4-FFA9-4203-92BC-2705110CEE64}|dipl\\evoSim.web.csproj|solutionrelative:dipl\\evosim.web.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AnimalsService.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.logic\\AnimalsService.cs",
+              "RelativeDocumentMoniker": "evoSim.logic\\AnimalsService.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.logic\\AnimalsService.cs",
+              "RelativeToolTip": "evoSim.logic\\AnimalsService.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAuwC8AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:21.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\User.cs",
+              "RelativeDocumentMoniker": "evoSim.data\\User.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\User.cs",
+              "RelativeToolTip": "evoSim.data\\User.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAWwBEAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:21.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Animal.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\Animal.cs",
+              "RelativeDocumentMoniker": "evoSim.data\\Animal.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\Animal.cs",
+              "RelativeToolTip": "evoSim.data\\Animal.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAtwCwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:21.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\Entity.cs",
+              "RelativeDocumentMoniker": "evoSim.data\\Entity.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\Entity.cs",
+              "RelativeToolTip": "evoSim.data\\Entity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA8AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:21.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EvoController.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\Controllers\\EvoController.cs",
+              "RelativeDocumentMoniker": "dipl\\Controllers\\EvoController.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\Controllers\\EvoController.cs",
+              "RelativeToolTip": "dipl\\Controllers\\EvoController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAIAxwDEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:21.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "dipl\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\Properties\\launchSettings.json",
+              "RelativeToolTip": "dipl\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-29T10:54:21.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "simService.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.logic\\simService.cs",
+              "RelativeDocumentMoniker": "evoSim.logic\\simService.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.logic\\simService.cs",
+              "RelativeToolTip": "evoSim.logic\\simService.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAhwFUAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:24.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CurrentState.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\CurrentState.cs",
+              "RelativeDocumentMoniker": "evoSim.data\\CurrentState.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\CurrentState.cs",
+              "RelativeToolTip": "evoSim.data\\CurrentState.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:25.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StartPopulaton.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\StartPopulaton.cs",
+              "RelativeDocumentMoniker": "evoSim.data\\StartPopulaton.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\StartPopulaton.cs",
+              "RelativeToolTip": "evoSim.data\\StartPopulaton.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:25.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Food.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\Food.cs",
+              "RelativeDocumentMoniker": "evoSim.data\\Food.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\Food.cs",
+              "RelativeToolTip": "evoSim.data\\Food.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:25.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MapSettings.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\MapSettings.cs",
+              "RelativeDocumentMoniker": "evoSim.data\\MapSettings.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\MapSettings.cs",
+              "RelativeToolTip": "evoSim.data\\MapSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAIAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:25.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\Program.cs",
+              "RelativeDocumentMoniker": "dipl\\Program.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\Program.cs",
+              "RelativeToolTip": "dipl\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:25.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\appsettings.json",
+              "RelativeDocumentMoniker": "dipl\\appsettings.json",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\appsettings.json",
+              "RelativeToolTip": "dipl\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-29T10:54:25.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "evoSim.web",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\evoSim.web.csproj",
+              "RelativeDocumentMoniker": "dipl\\evoSim.web.csproj",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\evoSim.web.csproj",
+              "RelativeToolTip": "dipl\\evoSim.web.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003627|",
+              "WhenOpened": "2024-05-29T10:54:25.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "dipl\\appsettings.Development.json",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\dipl\\appsettings.Development.json",
+              "RelativeToolTip": "dipl\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-29T10:54:25.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.test\\Program.cs",
+              "RelativeDocumentMoniker": "evoSim.test\\Program.cs",
+              "ToolTip": "D:\\\u0418\u043D\u0441\u0442\u0438\u0442\u0443\u0442\\8 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Diplom\\diplom\\dipl\\dipl\\evoSim.test\\Program.cs",
+              "RelativeToolTip": "evoSim.test\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:54:25.347Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

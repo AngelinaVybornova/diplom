@@ -22,7 +22,7 @@ export class SimulationFormComponent {
 
   appComponentClass: AppComponent;
   svgClass: Svg;
-  userData = new UserData;
+  userData = new UserData();
 
   constructor(_appComponentClass: AppComponent, private http: HttpClient) {
     this.appComponentClass = _appComponentClass;
@@ -40,6 +40,7 @@ export class SimulationFormComponent {
     console.log("state", this.state);
     this.userData.User = this.user;
     this.userData.CurrentState = this.state;
+    this.creatureHTML();
     this.callNewState();
     console.log("newState", this.userData.CurrentState);
     const bugIcons = document.getElementsByClassName("bug-icon");
@@ -49,8 +50,85 @@ export class SimulationFormComponent {
     this.step();
   }
 
-  async callNewState () {
+  async callNewState() {
     this.userData.CurrentState = await this.mainSimLoop(this.userData);
+  }
+
+  creatureHTML(): void {
+    const numberToBody = new Map<number, string>([
+      [0, this.svgClass.body1],
+      [1, this.svgClass.body2],
+      [10, this.svgClass.body3],
+      [11, this.svgClass.body4],
+    ]);
+    const numberToHead = new Map<number, string>([
+      [0, this.svgClass.head1],
+      [1, this.svgClass.head2],
+      [10, this.svgClass.head3],
+      [11, this.svgClass.head4],
+    ]);
+    const numberToEye = new Map<number, string>([
+      [0, this.svgClass.eye1],
+      [1, this.svgClass.eye2],
+      [10, this.svgClass.eye3],
+      [11, this.svgClass.eye4],
+    ]);
+    const numberToMounth = new Map<number, string>([
+      [0, this.svgClass.mouth1],
+      [1, this.svgClass.mouth2],
+      [10, this.svgClass.mouth3],
+      [11, this.svgClass.mouth4],
+    ]);
+    const numberToAdditional = new Map<number, string>([
+      [0, this.svgClass.add1],
+      [1, this.svgClass.add2],
+      [10, this.svgClass.add3],
+      [11, this.svgClass.add4],
+    ]);
+
+    const app = document.getElementsByClassName("field")[0];
+
+    for (let i = 0; i < this.userData.CurrentState.animals.length; i++) {
+      let microorganism = document.createElement("div");
+      microorganism.style.position = "absolute";
+      microorganism.classList.add("bug-icon");
+      let body = numberToBody.get(
+        this.userData.CurrentState.animals[i].decipheredGenome.bodyType
+      );
+      let haed = numberToHead.get(
+        this.userData.CurrentState.animals[i].decipheredGenome.headType
+      );
+      let eye = numberToEye.get(
+        this.userData.CurrentState.animals[i].decipheredGenome.eyeType
+      );
+      let mounth = numberToMounth.get(
+        this.userData.CurrentState.animals[i].decipheredGenome.mouthType
+      );
+      let additional = numberToAdditional.get(
+        this.userData.CurrentState.animals[i].decipheredGenome.additionalType
+      );
+      console.log(
+        "цвет",
+        this.userData.CurrentState.animals[i].decipheredGenome.bodyColor.b
+      );
+      let rgb = `rgb(${this.userData.CurrentState.animals[i].decipheredGenome.bodyColor.r}, ${this.userData.CurrentState.animals[i].decipheredGenome.bodyColor.g}, ${this.userData.CurrentState.animals[i].decipheredGenome.bodyColor.b})`;
+
+      body = body.replace(/fill="#000000"/, `fill="${rgb}"`);
+      additional = additional.replace(/fill="#000000"/, `fill="${rgb}"`);
+      rgb = `rgb(${this.userData.CurrentState.animals[i].decipheredGenome.headColor.r}, ${this.userData.CurrentState.animals[i].decipheredGenome.headColor.g}, ${this.userData.CurrentState.animals[i].decipheredGenome.headColor.b})`;
+      haed = haed.replace(/fill="#000000"/, `fill="${rgb}"`);
+      mounth = mounth.replace(/fill="#000000"/, `fill="${rgb}"`);
+      rgb = `rgb(${this.userData.CurrentState.animals[i].decipheredGenome.eyeColor.r}, ${this.userData.CurrentState.animals[i].decipheredGenome.eyeColor.g}, ${this.userData.CurrentState.animals[i].decipheredGenome.eyeColor.b})`;
+      eye = eye.replace(/fill="#000000"/, `fill="${rgb}"`);
+      let animalVid: string = body + eye + mounth + additional;
+
+      haed = haed.replace(/<\/svg>/, `${animalVid}</svg>`);
+      microorganism.innerHTML = haed;
+
+      app?.appendChild(microorganism);
+    }
+    //rgb(255, 0, 0)
+    // Создание словаря для сопоставления чисел с переменными
   }
 
   makeCockroach(icon: HTMLElement): {
@@ -80,18 +158,17 @@ export class SimulationFormComponent {
     add1 = add1.replace(/fill="#000000"/, `fill="${desiredColor}"`);
     svg.innerHTML = add1;
     */
-    //const lastFillElement = svg.querySelector("[fill]"); // Найдите последний элемент с атрибутом fill
-    //lastFillElement?.setAttribute("fill", "#00fa00");
-    //console.log("картинка", svg);
-
     //svg.classList.add("bug-icon");
+
     const app = document.getElementsByClassName("field")[0];
-    const desiredColor = "#00fa00";
-    let add1 = this.svgClass.body2;
+    /*
+    const desiredColor = "rgb(255, 0, 0)";
+    let add1 = this.svgClass.head1;
     add1 = add1.replace(/fill="#000000"/, `fill="${desiredColor}"`);
     svg.innerHTML = add1;
     console.log("картинка", svg);
     app?.appendChild(svg);
+    */
 
     const update = (t: number, isUpd: boolean) => {
       const rect: DOMRect | null = document
@@ -130,7 +207,7 @@ export class SimulationFormComponent {
 
       app?.appendChild(p);
 
-      (app as HTMLElement).style.backgroundColor = "red";
+      //(app as HTMLElement).style.backgroundColor = "red";
       //console.log("новое", tx, ty);
 
       dxy = Math.sqrt(Math.pow(tx - x, 2) + Math.pow(ty - y, 2)) / 1000;
@@ -153,7 +230,7 @@ export class SimulationFormComponent {
       }
       icon.style.left = x + "px";
       icon.style.top = y + "px";
-      icon.style.transform = "rotate(" + ((180 * a) / Math.PI - 135) + "deg)";
+      icon.style.transform = "rotate(" + ((180 * a) / Math.PI - 270) + "deg)";
       lastT = t;
     };
 
@@ -179,6 +256,8 @@ export class SimulationFormComponent {
   }
 
   public async mainSimLoop(data: UserData): Promise<CurrentState> {
-    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/mainSimLoop`, data)) as Promise<CurrentState>; //не проверено
+    return (await lastValueFrom(
+      this.http.post(`http://localhost:4201/evoSim/mainSimLoop`, data)
+    )) as Promise<CurrentState>;
   }
 }

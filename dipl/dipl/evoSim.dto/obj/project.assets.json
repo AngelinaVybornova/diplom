@@ -8,25 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ПК\\.nuget\\packages": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\123\\.nuget\\packages\\": {},
+    "D:\\My Programs\\VisualStudio\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\diplom\\dipl\\dipl\\evoSim.dto\\evoSim.dto.csproj",
+      "projectUniqueName": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.dto\\evoSim.dto.csproj",
       "projectName": "evoSim.dto",
-      "projectPath": "D:\\diplom\\dipl\\dipl\\evoSim.dto\\evoSim.dto.csproj",
-      "packagesPath": "C:\\Users\\ПК\\.nuget\\packages",
-      "outputPath": "D:\\diplom\\dipl\\dipl\\evoSim.dto\\obj\\",
+      "projectPath": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.dto\\evoSim.dto.csproj",
+      "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
+      "outputPath": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.dto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "D:\\My Programs\\VisualStudio\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ПК\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -34,7 +32,7 @@
         "net6.0"
       ],
       "sources": {
-        "D:\\tru\\test-nuggets": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -73,7 +71,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

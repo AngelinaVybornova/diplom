@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj": {}
+    "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj": {}
   },
   "projects": {
-    "D:\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj": {
+    "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj",
+        "projectUniqueName": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj",
         "projectName": "evoSim.data",
-        "projectPath": "D:\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj",
-        "packagesPath": "C:\\Users\\ПК\\.nuget\\packages",
-        "outputPath": "D:\\diplom\\dipl\\dipl\\evoSim.data\\obj\\",
+        "projectPath": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj",
+        "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
+        "outputPath": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "D:\\My Programs\\VisualStudio\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ПК\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +25,7 @@
           "net6.0"
         ],
         "sources": {
-          "D:\\tru\\test-nuggets": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,25 +64,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj": {
+    "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj",
+        "projectUniqueName": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj",
         "projectName": "evoSim.logic",
-        "projectPath": "D:\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj",
-        "packagesPath": "C:\\Users\\ПК\\.nuget\\packages",
-        "outputPath": "D:\\diplom\\dipl\\dipl\\evoSim.logic\\obj\\",
+        "projectPath": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.logic\\evoSim.logic.csproj",
+        "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
+        "outputPath": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.logic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "D:\\My Programs\\VisualStudio\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ПК\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -91,15 +89,15 @@
           "net6.0"
         ],
         "sources": {
-          "D:\\tru\\test-nuggets": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj": {
-                "projectPath": "D:\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj"
+              "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj": {
+                "projectPath": "D:\\Институт\\8 семестр\\Diplom\\diplom\\dipl\\dipl\\evoSim.data\\evoSim.data.csproj"
               }
             }
           }
@@ -134,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

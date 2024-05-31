@@ -35,3 +35,40 @@ D:\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.data.pdb
 D:\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.logic.pdb
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.sourcelink.json
 D:\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.csproj.Up2Date
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\appsettings.Development.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\appsettings.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.web.exe
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.web.deps.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.web.runtimeconfig.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.web.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.web.pdb
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.data.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.logic.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.data.pdb
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\bin\Debug\net6.0\evoSim.logic.pdb
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.csproj.AssemblyReference.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.GeneratedMSBuildEditorConfig.editorconfig
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.AssemblyInfoInputs.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.AssemblyInfo.cs
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.csproj.CoreCompileInputs.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.MvcApplicationPartsAssemblyInfo.cs
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.MvcApplicationPartsAssemblyInfo.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.sourcelink.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets.build.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets.development.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets\msbuild.evoSim.web.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets\msbuild.build.evoSim.web.props
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.evoSim.web.props
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.evoSim.web.props
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\scopedcss\bundle\evoSim.web.styles.css
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.csproj.Up2Date
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\refint\evoSim.web.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.pdb
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\evoSim.web.genruntimeconfig.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\dipl\obj\Debug\net6.0\ref\evoSim.web.dll

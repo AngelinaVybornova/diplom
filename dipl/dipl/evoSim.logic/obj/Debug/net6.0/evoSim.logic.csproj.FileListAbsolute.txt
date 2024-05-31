@@ -14,3 +14,19 @@ D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.pdb
 D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\ref\evoSim.logic.dll
 D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.sourcelink.json
 D:\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.l.F73BCBC1.Up2Date
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.logic.deps.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.logic.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.logic.pdb
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.data.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\bin\Debug\net6.0\evoSim.data.pdb
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.csproj.AssemblyReference.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.GeneratedMSBuildEditorConfig.editorconfig
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.AssemblyInfoInputs.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.AssemblyInfo.cs
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.csproj.CoreCompileInputs.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.sourcelink.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.l.F73BCBC1.Up2Date
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\refint\evoSim.logic.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\evoSim.logic.pdb
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.logic\obj\Debug\net6.0\ref\evoSim.logic.dll

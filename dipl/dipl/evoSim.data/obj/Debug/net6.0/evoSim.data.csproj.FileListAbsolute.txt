@@ -10,3 +10,15 @@ D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\refint\evoSim.data.dll
 D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.pdb
 D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\ref\evoSim.data.dll
 D:\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.sourcelink.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\bin\Debug\net6.0\evoSim.data.deps.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\bin\Debug\net6.0\evoSim.data.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\bin\Debug\net6.0\evoSim.data.pdb
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.AssemblyInfoInputs.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.AssemblyInfo.cs
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.csproj.CoreCompileInputs.cache
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.sourcelink.json
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\refint\evoSim.data.dll
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\evoSim.data.pdb
+D:\Институт\8 семестр\Diplom\diplom\dipl\dipl\evoSim.data\obj\Debug\net6.0\ref\evoSim.data.dll

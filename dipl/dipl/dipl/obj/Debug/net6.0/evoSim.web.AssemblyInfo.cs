@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("evoSim.web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+def2635152aae0eada68e606f128760af446af5c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b70ea9b97ee4068fc3f471f0603e4654d3aed86")]
 [assembly: System.Reflection.AssemblyProductAttribute("evoSim.web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("evoSim.web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

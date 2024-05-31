@@ -42,11 +42,11 @@ export class LoginComponent {
     //console.log("user sent1", usr, this.loginObj);
     this.appComponentClass.formChange.next("vhod");
   }
-  public buttonClkRegistration(): void {
+  public async buttonClkRegistration(): Promise<void> {
     let usr = new User();
     usr.login = this.signUpObj.name;
     usr.password = this.signUpObj.password;
-    var isRegistered = this.signUp(usr);
+    var isRegistered = await this.signUp(usr);
     //console.log("2");
     this.userSet.emit(usr);
     //console.log("user sent2", usr, this.signUpObj);
@@ -55,11 +55,15 @@ export class LoginComponent {
   }
 
   public async logIn(data: User): Promise<boolean> {
-    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/login`, data)) as Promise<boolean>;
+    return (await lastValueFrom(
+      this.http.post(`http://localhost:4201/evoSim/login`, data)
+    )) as Promise<boolean>;
   }
 
   public async signUp(data: User): Promise<boolean> {
-    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/signUp`, data)) as Promise<boolean>;
+    return (await lastValueFrom(
+      this.http.post(`http://localhost:4201/evoSim/signUp`, data)
+    )) as Promise<boolean>;
   }
 
   onRegister() {
