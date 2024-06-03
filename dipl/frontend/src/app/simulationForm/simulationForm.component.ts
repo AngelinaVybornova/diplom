@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from "../app.component";
 import { Svg } from "./svgImage";
 import { CurrentState, User, UserData } from "../models/models";
-import { lastValueFrom } from "rxjs";
+import { count, lastValueFrom } from "rxjs";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @Component({
@@ -19,10 +19,14 @@ export class SimulationFormComponent {
   @Input() N: number = 0;
   @Input() user: User;
   @Input() state: CurrentState;
+  copyState: CurrentState;
 
   appComponentClass: AppComponent;
   svgClass: Svg;
   userData = new UserData();
+  public buttonClkVihod(): void {
+    this.appComponentClass.formChange.next("vihod");
+  }
 
   constructor(_appComponentClass: AppComponent, private http: HttpClient) {
     this.appComponentClass = _appComponentClass;
@@ -32,7 +36,8 @@ export class SimulationFormComponent {
     this.appComponentClass.formChange.next("stopSim");
   }
   // тут пишем логику на typescript
-  public animals = 3;
+  public animalsCount: number = 0;
+  public ix: number;
   private cockroaches: { update: (t: number, isUpd: boolean) => void }[] = [];
 
   ngOnInit(): void {
@@ -41,13 +46,18 @@ export class SimulationFormComponent {
     this.userData.User = this.user;
     this.userData.CurrentState = this.state;
     this.creatureHTML();
+    this.copyState = JSON.parse(JSON.stringify(this.userData.CurrentState));
     this.callNewState();
     console.log("newState", this.userData.CurrentState);
-    const bugIcons = document.getElementsByClassName("bug-icon");
-    for (let i = 0; i < bugIcons.length; i++) {
-      this.makeCockroach(bugIcons[i] as HTMLElement);
-    }
+    this.challengeMakeCockroach();
     this.step();
+    console.log("длина животных", this.userData.CurrentState.animals.length);
+  }
+  challengeMakeCockroach(): void {
+    const bugIcons = document.getElementsByClassName("bug-icon");
+    for (this.ix = 0; this.ix < bugIcons.length; this.ix++) {
+      this.makeCockroach(bugIcons[this.ix] as HTMLElement);
+    }
   }
 
   async callNewState() {
@@ -86,7 +96,7 @@ export class SimulationFormComponent {
       [11, this.svgClass.add4],
     ]);
 
-    const app = document.getElementsByClassName("field")[0];
+    const app = document.getElementsByClassName("header")[0];
 
     for (let i = 0; i < this.userData.CurrentState.animals.length; i++) {
       let microorganism = document.createElement("div");
@@ -123,12 +133,32 @@ export class SimulationFormComponent {
       let animalVid: string = body + eye + mounth + additional;
 
       haed = haed.replace(/<\/svg>/, `${animalVid}</svg>`);
+      microorganism.style.left =
+        this.userData.CurrentState.animals[i].coordinates[0] + "px";
+      microorganism.style.top =
+        this.userData.CurrentState.animals[i].coordinates[1] + "px";
       microorganism.innerHTML = haed;
 
       app?.appendChild(microorganism);
     }
-    //rgb(255, 0, 0)
-    // Создание словаря для сопоставления чисел с переменными
+    for (let i = 0; i < this.userData.CurrentState.food.length; i++) {
+      let foods = document.createElement("div");
+      foods.style.position = "absolute";
+      foods.style.left =
+        this.userData.CurrentState.food[i].coordinates[0] + "px";
+      foods.style.top =
+        this.userData.CurrentState.food[i].coordinates[1] + "px";
+      foods.classList.add("food-icon");
+      let food: string;
+      if (this.userData.CurrentState.food[i].type == true) {
+        food = this.svgClass.meat;
+      } else {
+        food = this.svgClass.grass;
+      }
+      foods.innerHTML = food;
+
+      app?.appendChild(foods);
+    }
   }
 
   makeCockroach(icon: HTMLElement): {
@@ -140,16 +170,19 @@ export class SimulationFormComponent {
     if (!rect1) return { update: () => {} }; // Проверка на наличие rect
     let vspeed: number = 50;
     const aspeed: number = 10 * Math.PI;
-    const p = document.createElement("img");
+    //const p = document.createElement("img");
     let lastT: number = 0;
     let lastTargetTime: number = -100;
     let a: number = 0;
-    let x: number = Math.random() * (rect1.width - 20);
-    let y: number = Math.random() * (rect1.width - 20);
-    let tx: number = Math.random() * (rect1.width - 20);
-    let ty: number = Math.random() * (rect1.width - 20);
+    let x: number = this.copyState.animals[0].coordinates[0];
+    let y: number = this.copyState.animals[0].coordinates[1];
+    let tx: number = this.userData.CurrentState.animals[this.ix].coordinates[0];
+    let ty: number = this.userData.CurrentState.animals[this.ix].coordinates[0];
     let dxy: number = 0;
-
+    console.log(
+      "координаты",
+      this.userData.CurrentState.food[0].coordinates[1]
+    );
     const svg = document.createElement("div");
     /*
     svg.classList.add("bug-icon");
@@ -160,7 +193,7 @@ export class SimulationFormComponent {
     */
     //svg.classList.add("bug-icon");
 
-    const app = document.getElementsByClassName("field")[0];
+    //const app = document.getElementsByClassName("field")[0];
     /*
     const desiredColor = "rgb(255, 0, 0)";
     let add1 = this.svgClass.head1;
@@ -176,36 +209,42 @@ export class SimulationFormComponent {
         ?.getBoundingClientRect();
       if (!rect) return; // Проверка на наличие rect
 
-      if (t >= lastTargetTime + 3 && isUpd == true) {
-        //----------------Вызов метода для вызова бека--------------
+      if (t >= lastTargetTime + 3 /*&& isUpd == true*/) {
+        //document.getElementById("bug-container").innerHTML = "";
+        //p.remove;
+        //svg.remove;
+        //tx = Math.random() * (rect.width - 20); // Ограничение по ширине
+        //ty = Math.random() * (rect.height - 20); // Ограничение по высоте
+        //console.log("coords", tx, ty);
+        //t = t * 1000;
+        lastTargetTime = t;
+        this.countAnimals();
+        console.log("счет", isUpd);
+      } /*else if (t >= lastTargetTime + 5 && isUpd == false) {
+        //document.getElementById("bug-container").innerHTML = "";
+        //document.getElementById("fieldHTML").innerHTML = "";
+        //icon.remove;
         p.remove;
-        svg.remove;
+        //svg.remove;
         tx = Math.random() * (rect.width - 20); // Ограничение по ширине
         ty = Math.random() * (rect.height - 20); // Ограничение по высоте
         //console.log("coords", tx, ty);
         //t = t * 1000;
         lastTargetTime = t;
         console.log("счет", isUpd);
-      } else if (t >= lastTargetTime + 3 && isUpd == false) {
-        p.remove;
-        svg.remove;
-        tx = Math.random() * (rect.width - 20); // Ограничение по ширине
-        ty = Math.random() * (rect.height - 20); // Ограничение по высоте
-        //console.log("coords", tx, ty);
-        //t = t * 1000;
-        lastTargetTime = t;
-        console.log("счет", isUpd);
-      }
+
+      }*/
 
       const dt: number = t - lastT;
+      //console.log("картинка", icon);
 
       //svg.innerHTML = "";
-      p.src = "https://svgshare.com/i/t12.svg";
-      p.style.position = "absolute";
-      p.style.left = tx + "px";
-      p.style.top = ty + "px";
+      //p.src = "https://svgshare.com/i/t12.svg";
+      //p.style.position = "absolute";
+      //p.style.left = tx + "px";
+      //p.style.top = ty + "px";
 
-      app?.appendChild(p);
+      //app?.appendChild(p);
 
       //(app as HTMLElement).style.backgroundColor = "red";
       //console.log("новое", tx, ty);
@@ -241,18 +280,44 @@ export class SimulationFormComponent {
 
   step() {
     const t: number = performance.now() / 1000;
-    let count = 0;
+    let int = 1;
     let isUpd: boolean = false;
     for (const cockroach of this.cockroaches) {
-      count = count + 1;
-      if (count == this.animals) {
-        isUpd = true;
-        count = 0;
-      }
       cockroach.update(t, isUpd);
-      isUpd = false;
+      //count = count + 1;
+      //if (count == this.userData.CurrentState.animals.length) {
+      //isUpd = true;
+      //count = 1;
+      //}
+      //isUpd = false;
     }
+    console.log("число", int++);
     window.requestAnimationFrame(() => this.step());
+  }
+  countAnimals(): void {
+    this.animalsCount++;
+    if (this.animalsCount == this.userData.CurrentState.animals.length) {
+      this.removeCockroaches();
+      this.creatureHTML();
+      this.state = JSON.parse(JSON.stringify(this.userData.CurrentState));
+      console.log("старый пакет", this.state);
+
+      // Вызываем callNewState() после вывода старого состояния
+      this.callNewState();
+      console.log("новый пакет", this.userData.CurrentState);
+      console.log("проверка старого пакета", this.state);
+
+      this.challengeMakeCockroach();
+      this.step();
+      this.animalsCount = 0;
+    }
+  }
+  removeCockroaches(): void {
+    this.cockroaches = []; // Очистка массива тараканов
+    const bugIcons = document.querySelectorAll(".bug-icon");
+    bugIcons.forEach((bugIcon) => bugIcon.remove()); // Удаление элементов из DOM
+    const foodIcons = document.querySelectorAll(".food-icon");
+    foodIcons.forEach((foodIcon) => foodIcon.remove()); // Удаление элементов из DOM
   }
 
   public async mainSimLoop(data: UserData): Promise<CurrentState> {

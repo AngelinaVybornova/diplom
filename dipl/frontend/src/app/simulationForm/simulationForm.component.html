@@ -5,11 +5,16 @@
         <h1 class="ligo">Эволюция</h1>
       </li>
     </ul>
-    <form class="d-flex"></form>
+    <form class="d-flex">
+      <!--span class="text-white">{{ loggedUser?.email }} </span-->
+      <button class="btn btn-primary" type="button" (click)="buttonClkVihod()">
+        Выход
+      </button>
+    </form>
   </div>
 </nav>
 
-<div class="field" [style.width.px]="M" [style.height.px]="N">
+<div class="field" id="fieldHTML" [style.width.px]="M" [style.height.px]="N">
   <header class="header" id="bug-container">
     <!--<img class="bug-icon" id="bug" src="https://svgshare.com/i/t12.svg" />
     <img class="bug-icon" id="bug" src="https://svgshare.com/i/t12.svg" />
@@ -18,7 +23,7 @@
 </div>
 <br />
 <div class="center">
-  <button (click)="stopSimulation()">Завершить симуляцию</button>
+  <button class="but" (click)="stopSimulation()">Завершить симуляцию</button>
 </div>
 <svg height="100" width="100">
   <use xlink:href="/src/app/Animals/body1.svg"></use>
