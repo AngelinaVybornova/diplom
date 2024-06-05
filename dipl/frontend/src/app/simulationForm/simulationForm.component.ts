@@ -19,7 +19,6 @@ export class SimulationFormComponent {
   @Input() N: number = 0;
   @Input() user: User;
   @Input() state: CurrentState;
-  copyState: CurrentState;
 
   appComponentClass: AppComponent;
   svgClass: Svg;
@@ -38,16 +37,16 @@ export class SimulationFormComponent {
   // тут пишем логику на typescript
   public animalsCount: number = 0;
   public ix: number;
-  private cockroaches: { update: (t: number, isUpd: boolean) => void }[] = [];
+  private cockroaches: { update: (t: number) => void }[] = [];
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.svgClass = new Svg();
     console.log("state", this.state);
     this.userData.User = this.user;
     this.userData.CurrentState = this.state;
     this.creatureHTML();
-    this.copyState = JSON.parse(JSON.stringify(this.userData.CurrentState));
-    this.callNewState();
+    this.state = JSON.parse(JSON.stringify(this.userData.CurrentState));
+    await this.callNewState();
     console.log("newState", this.userData.CurrentState);
     this.challengeMakeCockroach();
     this.step();
@@ -95,62 +94,60 @@ export class SimulationFormComponent {
       [10, this.svgClass.add3],
       [11, this.svgClass.add4],
     ]);
+    const rect1: DOMRect | null = document
+      .querySelector(".field")
+      ?.getBoundingClientRect();
 
     const app = document.getElementsByClassName("header")[0];
 
-    for (let i = 0; i < this.userData.CurrentState.animals.length; i++) {
+    for (let i = 0; i < this.state.animals.length; i++) {
       let microorganism = document.createElement("div");
       microorganism.style.position = "absolute";
       microorganism.classList.add("bug-icon");
       let body = numberToBody.get(
-        this.userData.CurrentState.animals[i].decipheredGenome.bodyType
+        this.state.animals[i].decipheredGenome.bodyType
       );
       let haed = numberToHead.get(
-        this.userData.CurrentState.animals[i].decipheredGenome.headType
+        this.state.animals[i].decipheredGenome.headType
       );
-      let eye = numberToEye.get(
-        this.userData.CurrentState.animals[i].decipheredGenome.eyeType
-      );
+      let eye = numberToEye.get(this.state.animals[i].decipheredGenome.eyeType);
       let mounth = numberToMounth.get(
-        this.userData.CurrentState.animals[i].decipheredGenome.mouthType
+        this.state.animals[i].decipheredGenome.mouthType
       );
       let additional = numberToAdditional.get(
-        this.userData.CurrentState.animals[i].decipheredGenome.additionalType
+        this.state.animals[i].decipheredGenome.additionalType
       );
-      console.log(
-        "цвет",
-        this.userData.CurrentState.animals[i].decipheredGenome.bodyColor.b
-      );
-      let rgb = `rgb(${this.userData.CurrentState.animals[i].decipheredGenome.bodyColor.r}, ${this.userData.CurrentState.animals[i].decipheredGenome.bodyColor.g}, ${this.userData.CurrentState.animals[i].decipheredGenome.bodyColor.b})`;
+      console.log("цвет", this.state.animals[i].decipheredGenome.bodyColor.b);
+      let rgb = `rgb(${this.state.animals[i].decipheredGenome.bodyColor.r}, ${this.state.animals[i].decipheredGenome.bodyColor.g}, ${this.state.animals[i].decipheredGenome.bodyColor.b})`;
 
       body = body.replace(/fill="#000000"/, `fill="${rgb}"`);
       additional = additional.replace(/fill="#000000"/, `fill="${rgb}"`);
-      rgb = `rgb(${this.userData.CurrentState.animals[i].decipheredGenome.headColor.r}, ${this.userData.CurrentState.animals[i].decipheredGenome.headColor.g}, ${this.userData.CurrentState.animals[i].decipheredGenome.headColor.b})`;
+      rgb = `rgb(${this.state.animals[i].decipheredGenome.headColor.r}, ${this.state.animals[i].decipheredGenome.headColor.g}, ${this.state.animals[i].decipheredGenome.headColor.b})`;
       haed = haed.replace(/fill="#000000"/, `fill="${rgb}"`);
       mounth = mounth.replace(/fill="#000000"/, `fill="${rgb}"`);
-      rgb = `rgb(${this.userData.CurrentState.animals[i].decipheredGenome.eyeColor.r}, ${this.userData.CurrentState.animals[i].decipheredGenome.eyeColor.g}, ${this.userData.CurrentState.animals[i].decipheredGenome.eyeColor.b})`;
+      rgb = `rgb(${this.state.animals[i].decipheredGenome.eyeColor.r}, ${this.state.animals[i].decipheredGenome.eyeColor.g}, ${this.state.animals[i].decipheredGenome.eyeColor.b})`;
       eye = eye.replace(/fill="#000000"/, `fill="${rgb}"`);
       let animalVid: string = body + eye + mounth + additional;
 
       haed = haed.replace(/<\/svg>/, `${animalVid}</svg>`);
       microorganism.style.left =
-        this.userData.CurrentState.animals[i].coordinates[0] + "px";
+        this.state.animals[i].coordinates[0] - rect1.width / 2 + "px";
       microorganism.style.top =
-        this.userData.CurrentState.animals[i].coordinates[1] + "px";
+        this.state.animals[i].coordinates[1] + 100 - rect1.height / 2 + "px";
       microorganism.innerHTML = haed;
 
       app?.appendChild(microorganism);
     }
-    for (let i = 0; i < this.userData.CurrentState.food.length; i++) {
+    for (let i = 0; i < this.state.food.length; i++) {
       let foods = document.createElement("div");
       foods.style.position = "absolute";
       foods.style.left =
-        this.userData.CurrentState.food[i].coordinates[0] + "px";
+        this.state.food[i].coordinates[0] - rect1.width / 2 + "px";
       foods.style.top =
-        this.userData.CurrentState.food[i].coordinates[1] + "px";
+        this.state.food[i].coordinates[1] + 100 - rect1.height / 2 + "px";
       foods.classList.add("food-icon");
       let food: string;
-      if (this.userData.CurrentState.food[i].type == true) {
+      if (this.state.food[i].type == true) {
         food = this.svgClass.meat;
       } else {
         food = this.svgClass.grass;
@@ -162,7 +159,7 @@ export class SimulationFormComponent {
   }
 
   makeCockroach(icon: HTMLElement): {
-    update: (t: number, isUpd: boolean) => void;
+    update: (t: number) => void;
   } {
     const rect1: DOMRect | null = document
       .querySelector(".field")
@@ -173,37 +170,41 @@ export class SimulationFormComponent {
     //const p = document.createElement("img");
     let lastT: number = 0;
     let lastTargetTime: number = -100;
-    let a: number = 0;
-    let x: number = this.copyState.animals[0].coordinates[0];
-    let y: number = this.copyState.animals[0].coordinates[1];
-    let tx: number = this.userData.CurrentState.animals[this.ix].coordinates[0];
-    let ty: number = this.userData.CurrentState.animals[this.ix].coordinates[0];
+    let a: number = 0; //this.state.animals[this.ix].turnAngle;
+    let tx: number;
+    let ty: number;
+    if (
+      this.state.animals.length > this.userData.CurrentState.animals.length &&
+      this.ix > this.userData.CurrentState.animals.length - 1
+    ) {
+      tx = this.state.animals[this.ix].coordinates[0] - rect1.width / 2;
+      ty = this.state.animals[this.ix].coordinates[1] + 100 - rect1.height / 2;
+      console.log(
+        "координаты state x",
+        this.state.animals[this.ix].coordinates[0]
+      );
+    } else {
+      tx =
+        this.userData.CurrentState.animals[this.ix].coordinates[0] -
+        rect1.width / 2;
+      ty =
+        this.userData.CurrentState.animals[this.ix].coordinates[1] +
+        100 -
+        rect1.height / 2;
+      console.log(
+        "координаты userData x",
+        this.userData.CurrentState.animals[this.ix].coordinates[0]
+      );
+    }
+    let x: number =
+      this.state.animals[this.ix].coordinates[0] - rect1.width / 2;
+    let y: number =
+      this.state.animals[this.ix].coordinates[1] + 100 - rect1.height / 2;
+    //let tx: number = this.userData.CurrentState.animals[this.ix].coordinates[0];
+    //let ty: number = this.userData.CurrentState.animals[this.ix].coordinates[1];
     let dxy: number = 0;
-    console.log(
-      "координаты",
-      this.userData.CurrentState.food[0].coordinates[1]
-    );
-    const svg = document.createElement("div");
-    /*
-    svg.classList.add("bug-icon");
-    const desiredColor = "#00fa00";
-    let add1 = this.svgClass.body1;
-    add1 = add1.replace(/fill="#000000"/, `fill="${desiredColor}"`);
-    svg.innerHTML = add1;
-    */
-    //svg.classList.add("bug-icon");
 
-    //const app = document.getElementsByClassName("field")[0];
-    /*
-    const desiredColor = "rgb(255, 0, 0)";
-    let add1 = this.svgClass.head1;
-    add1 = add1.replace(/fill="#000000"/, `fill="${desiredColor}"`);
-    svg.innerHTML = add1;
-    console.log("картинка", svg);
-    app?.appendChild(svg);
-    */
-
-    const update = (t: number, isUpd: boolean) => {
+    const update = (t: number) => {
       const rect: DOMRect | null = document
         .querySelector(".field")
         ?.getBoundingClientRect();
@@ -217,24 +218,10 @@ export class SimulationFormComponent {
         //ty = Math.random() * (rect.height - 20); // Ограничение по высоте
         //console.log("coords", tx, ty);
         //t = t * 1000;
-        lastTargetTime = t;
+
         this.countAnimals();
-        console.log("счет", isUpd);
-      } /*else if (t >= lastTargetTime + 5 && isUpd == false) {
-        //document.getElementById("bug-container").innerHTML = "";
-        //document.getElementById("fieldHTML").innerHTML = "";
-        //icon.remove;
-        p.remove;
-        //svg.remove;
-        tx = Math.random() * (rect.width - 20); // Ограничение по ширине
-        ty = Math.random() * (rect.height - 20); // Ограничение по высоте
-        //console.log("coords", tx, ty);
-        //t = t * 1000;
         lastTargetTime = t;
-        console.log("счет", isUpd);
-
-      }*/
-
+      }
       const dt: number = t - lastT;
       //console.log("картинка", icon);
 
@@ -259,8 +246,10 @@ export class SimulationFormComponent {
       const a2: number = a + 2 * Math.PI;
       if (ta - a < a2 - ta) {
         a = Math.min(ta, a + dt * aspeed);
+        //this.userData.CurrentState.animals[this.ix].turnAngle = a;
       } else {
         a = Math.max(ta, a2 - dt * aspeed);
+        //this.userData.CurrentState.animals[this.ix].turnAngle = a;
       }
       //console.log("xxx", tx, ty);
       for (let frame = 0; frame < 30; frame++) {
@@ -281,9 +270,17 @@ export class SimulationFormComponent {
   step() {
     const t: number = performance.now() / 1000;
     let int = 1;
-    let isUpd: boolean = false;
-    for (const cockroach of this.cockroaches) {
-      cockroach.update(t, isUpd);
+    let i;
+    /*if (
+      this.userData.CurrentState.animals.length <= this.state.animals.length
+    ) {
+      i = this.userData.CurrentState.animals.length - 1;
+    } else {
+      i = this.state.animals.length - 1;
+    }*/
+    for (let i = 0; i < this.cockroaches.length; i++) {
+      const cockroach = this.cockroaches[i];
+      cockroach.update(t);
       //count = count + 1;
       //if (count == this.userData.CurrentState.animals.length) {
       //isUpd = true;
@@ -294,19 +291,16 @@ export class SimulationFormComponent {
     console.log("число", int++);
     window.requestAnimationFrame(() => this.step());
   }
-  countAnimals(): void {
+  async countAnimals(): Promise<void> {
     this.animalsCount++;
-    if (this.animalsCount == this.userData.CurrentState.animals.length) {
+    if (this.animalsCount == this.state.animals.length) {
       this.removeCockroaches();
       this.creatureHTML();
       this.state = JSON.parse(JSON.stringify(this.userData.CurrentState));
       console.log("старый пакет", this.state);
 
-      // Вызываем callNewState() после вывода старого состояния
-      this.callNewState();
+      await this.callNewState();
       console.log("новый пакет", this.userData.CurrentState);
-      console.log("проверка старого пакета", this.state);
-
       this.challengeMakeCockroach();
       this.step();
       this.animalsCount = 0;

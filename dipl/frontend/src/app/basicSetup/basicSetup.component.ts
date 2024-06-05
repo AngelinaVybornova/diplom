@@ -3,8 +3,14 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from "../app.component";
 import { HttpClient } from "@angular/common/http";
-import { HttpClientModule } from '@angular/common/http';
-import { CurrentState, MapSettings, User, UserFirstRandom, UserFirstSettings } from "../models/models";
+import { HttpClientModule } from "@angular/common/http";
+import {
+  CurrentState,
+  MapSettings,
+  User,
+  UserFirstRandom,
+  UserFirstSettings,
+} from "../models/models";
 import { Observable, lastValueFrom } from "rxjs";
 
 @Component({
@@ -35,7 +41,7 @@ export class BasicSetupComponent {
   public async buttonClkStartSimulation(bM: number, bN: number): Promise<void> {
     this.onChanged.emit({ bM, bN });
     const mapSettings = new MapSettings();
-    mapSettings.size = [this.bM, this.bN];
+    mapSettings.size = [this.bM - 100, this.bN - 100];
     mapSettings.animalsCap = this.maxOrgNum;
     mapSettings.foodAppearenceProb = this.foodProbability;
     const userFirstRandom = new UserFirstRandom();
@@ -62,10 +68,16 @@ export class BasicSetupComponent {
   }
 
   public async generateRandomly(data: UserFirstRandom): Promise<CurrentState> {
-    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/generateRandomly`, data)) as Promise<CurrentState>;
+    return (await lastValueFrom(
+      this.http.post(`http://localhost:4201/evoSim/generateRandomly`, data)
+    )) as Promise<CurrentState>;
   }
 
-  public async generateFromSettings(data: UserFirstSettings): Promise<CurrentState> {
-    return await lastValueFrom(this.http.post(`http://localhost:4201/evoSim/generateFromSettings`, data)) as Promise<CurrentState>; //не проверено
+  public async generateFromSettings(
+    data: UserFirstSettings
+  ): Promise<CurrentState> {
+    return (await lastValueFrom(
+      this.http.post(`http://localhost:4201/evoSim/generateFromSettings`, data)
+    )) as Promise<CurrentState>; //не проверено
   }
 }

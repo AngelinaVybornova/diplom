@@ -20,12 +20,12 @@ import { CurrentState, User } from "./models/models";
     SimulationFormComponent,
   ], //указываем тут
   template: `
-    <login-comp 
-    (userSet)="usrSet($event)"
-    *ngIf="formState === 'unclicked'">Кнопку нажали</login-comp>
-    <login-comp 
-    (userSet)="usrSet($event)"
-    *ngIf="formState === 'vihod'">Кнопку нажали</login-comp>
+    <login-comp (userSet)="usrSet($event)" *ngIf="formState === 'unclicked'"
+      >Кнопку нажали</login-comp
+    >
+    <login-comp (userSet)="usrSet($event)" *ngIf="formState === 'vihod'"
+      >Кнопку нажали</login-comp
+    >
     <basicSetup-comp
       (onChanged)="onChanged($event)"
       (stateFormed)="setState($event)"
